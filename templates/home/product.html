@@ -1,0 +1,166 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}{{product.title}}{% endblock title %}
+
+{% load static %}
+
+
+{% block meta_tags %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="{{product.meta_desc}}">
+<meta name="keywords" content="{{product.meta_key}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{sitedata.site_url}}{% url 'svg_icon_detail' product.slug %}">
+<meta property="og:title" content="{{product.title}}">
+<meta property="og:description" content="{{product.meta_desc}}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+{% endblock meta_tags %}
+
+
+{% block article_content %}
+<div class="main-product-container">
+
+    <aside class="sidebar-main">
+
+        <div class="sidebar-category">
+            <div class="sidebar-category-heading">
+                <strong>Product Category</strong>  
+                <i class="fa-solid fa-bars"></i>
+            </div>
+                <ul class="sidebar-category-menu">
+                    {% for category in category  %}
+                    <li><a href="{% url 'category_detail' category.id %}">{{category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+        </div>
+
+        <div class="sidebar-contact-box" style="background-image: url('{{sitedata.sidebar_contact_banner.url}}');">
+            <div class="sidebar-contact-box-icon">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <strong>WE CAN HELP YOU</strong>
+            <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
+            <a href="{% url 'contact' %}">Contact Us</a>
+        </div>
+
+        <div class="sidebar-recent-product">
+            <div class="sidebar-recent-heading">
+                <i class="fa-solid fa-bars-progress"></i>
+                <strong>New Products</strong>
+            </div>
+            {% for product in recentProduct|slice:"3"  %}
+            <div class="sidebar-recent-box">
+                <a href="{% url 'svg_icon_detail' product.slug %}" class="sidebar-recent-box-img"><img src="{{product.product_images.first.image.url}}" title="{{product.title}}"></a>
+                <div class="sidebar-recent-box-text">
+                    <a href="{% url 'svg_icon_detail' product.slug %}">{{product.title}}</a>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </aside>
+
+    <div>
+    <!--==Product-Details============================-->
+    <section id="product_details">
+
+        <!--**img*************-->
+        <div class="d-product-img">
+            {% if product.product_images.all %}
+            <div style="width:100%" class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    {% for images in product.product_images.all %}
+                    <div class="swiper-slide">
+                        <img src="{{images.image.url}}" />
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div thumbsSlider="" class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {% for images in product.product_images.all %}
+                    <div class="swiper-slide">
+                        <img src="{{images.image.url}}" />
+                    </div>
+                    {% endfor %}
+                </div>
+              </div>
+              {% endif %}
+        </div>
+        <!--**text************-->
+        <div class="d-product-text">
+            <!--category-->
+            <span class="category">{{product.category}}</span>
+            <!--title-->
+            <strong>{{product.title}}</strong>
+            <!--details-->
+            <p><b>Brand: </b>{{product.brand}}</p>
+            <p><b>Model: </b>{{product.model}}</p>
+            <p><b>Weight: </b>{{product.weight}}</p>
+            <p><b>Waterproof: </b>{{product.waterproof}}</p>
+            <p><b>Feature: </b>{{product.feature}}</p>
+            <!--price-->
+            <span class="price"><span style="font-size:16px; font-weight:500;">Price:</span> {{product.price}}$</span>
+            <div class="product-contact-btns">
+                <a href="{% url 'contact' %}"><i class="fa-solid fa-comment"></i>Inquire Now</a>
+                <a href="{{sitedata.whatsapp_link}}" target="_blank" > <i class="fab fa-whatsapp"></i>WhatsApp</a>
+                <a href="mailto:{{sitedata.email}}" > <i class="fa-solid fa-envelope"></i>Email</a>
+            </div>
+        </div>
+
+    </section><!--details-end-->
+
+
+
+
+    <section class="d-product-description">
+        <h2>Description</h2>
+        <p>{{product.details}}</p>
+    </section>
+
+    <section class="d-product-show">
+        <h2>Product Show</h2>
+        {% for showImages in product.product_show_images.all %}
+        <img src="{{showImages.image.url}}" />
+        {% endfor %}
+    </section>
+
+
+
+
+</div>
+</div>
+
+
+{% endblock article_content %}
+
+{% block body_script %}
+<!--==Jquery====================-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+  </script>
+{% endblock body_script %}

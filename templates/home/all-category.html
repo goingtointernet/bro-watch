@@ -1,0 +1,117 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} All Categories - {{sitedata.site_name}}{% endblock title %}
+
+{% load static %}
+
+
+{% block meta_tags %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="All categories, Get all type of watches at {{sitedata.site_name}}">
+<meta name="keywords" content="All Categories, {{sitedata.site_name}}, BRO-UNION WATCH WEBSITE, DIGITAL WATCH, FASHION WATCH, SPORTS WATCH, OEM WATCH">
+<meta property="og:type" content="website">
+<meta property="og:title" content="All Categories - {{sitedata.site_name}}">
+<meta property="og:description" content="All categories, Get all type of watches at {{sitedata.site_name}}">
+{% endblock meta_tags %}
+
+
+{% block article_content %}
+<div class="main-product-container">
+
+    <aside class="sidebar-main">
+
+        <div class="sidebar-category">
+            <div class="sidebar-category-heading">
+                <strong>Product Category</strong>  
+                <i class="fa-solid fa-bars"></i>
+            </div>
+                <ul class="sidebar-category-menu">
+                    {% for category in category  %}
+                    <li><a href="{% url 'category_detail' category.id %}">{{category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+        </div>
+
+        <div class="sidebar-contact-box" style="background-image: url('{{sitedata.sidebar_contact_banner.url}}');">
+            <div class="sidebar-contact-box-icon">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <strong>WE CAN HELP YOU</strong>
+            <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
+            <a href="{% url 'contact' %}">Contact Us</a>
+        </div>
+
+        <div class="sidebar-recent-product">
+            <div class="sidebar-recent-heading">
+                <i class="fa-solid fa-bars-progress"></i>
+                <strong>New Products</strong>
+            </div>
+            {% for product in recentProduct|slice:"3"  %}
+            <div class="sidebar-recent-box">
+                <a href="{% url 'svg_icon_detail' product.slug %}" class="sidebar-recent-box-img"><img src="{{product.product_images.first.image.url}}" title="{{product.title}}"></a>
+                <div class="sidebar-recent-box-text">
+                    <a href="{% url 'svg_icon_detail' product.slug %}">{{product.title}}</a>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </aside>
+<section class="home-sections">
+    <div class="main-heading-container">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#fa8609" viewBox="0 0 448 512"><path d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z"/></svg>
+        {% if group.heading %}
+        <h3>{{group.heading}}</h3>
+        {% else %}
+        <h3>All Category</h3>
+        {% endif %}
+    </div>
+
+
+    <div class="popular-product-container category-container">
+        {% for category in all_category %}
+        <!--*box*-->
+        <div class="r-product-box r-category-box">
+            <!--img-->
+            <a href="{% url 'category_detail' category.id %}" class="r-product-img">
+                <img src="{{category.category_box_image.url}}" />
+            </a>
+            <!--text-->
+            <div class="r-product-text">
+                <!--title-->
+                <a href="{% url 'category_detail' category.id %}" class="product-box-p-name">{{category.name}}</a>
+            </div>
+        </div><!--box-end-->
+        {% endfor %}
+    </div>
+
+    {% if all_category|length < 1 %} <div class="search-not-found">
+        <span style="color:red; font-size:0.8rem;">*No category added yet</span>
+    {% endif %}
+    
+
+    <!--page-number=====================-->
+<div class="page-number">
+    {% if pagination.has_previous %}
+    <a href="search?search={{search}}&page=1">&laquo;</a>
+    <a href="search?search={{search}}&page={{pagination.previous_page_number}}">Previous</a>
+    {% endif %}
+
+    {% if pagination.has_next %}    
+    <a href="search?search={{search}}&page={{pagination.next_page_number}}">Next</a>
+    <a href="search?search={{search}}&page={{pagination.paginator.num_pages}}">&raquo;</a>
+    {% endif %}
+</div>
+
+
+    </div>
+</section>
+
+
+
+
+
+
+    {% endblock article_content %}

@@ -1,0 +1,285 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}{{sitedata.title}}{% endblock title %}
+
+{% load static %}
+
+
+{% block meta_tags %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="{{sitedata.meta_desc}}">
+<meta name="keywords" content="{{sitedata.meta_key}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{sitedata.site_url}}">
+<meta property="og:title" content="{{sitedata.title}}">
+<meta property="og:description" content="{{sitedata.meta_desc}}">
+<meta property="og:image" content="{{sitedata.fav_icon.url}}">
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+{% endblock meta_tags %}
+
+{% block main_banner_class %}home-main-{% endblock main_banner_class %}
+
+{% block article_class %}class="home-banner"{% endblock article_class %}
+
+{% block home_main %}
+
+{% endblock home_main %}
+
+{% block article_content %}
+
+
+
+<!--==main=============================-->
+<section id="main">
+    <div class="swiper mySwiperBanner">
+        <div class="swiper-wrapper">
+        {% for banner in banner %}
+          <a href="{% url 'all_category' %}" class="swiper-slide">
+            <img src="{{banner.image.url}}" alt="Banner image">
+          </a>
+        {% endfor %}
+        </div>
+      </div>
+</section><!--main-end-->
+
+
+
+
+<!--==Recent-Product=========================-->
+<section class="recent-product">
+
+    <!--**heading********************-->
+    <div class="product-heading product-center-heading">
+        <h3>HOT SALE PRODUCTS</h3>
+        <p>Here are the main product categories we manufacture, and hot-selling watch recommendations</p>
+    </div>
+
+    <!--**container******************-->
+    <div class="r-product-container">
+        {% for category in category|slice:"10" %}
+        <!--*box*-->
+        <div class="r-product-box r-category-box">
+            <!--img-->
+            <a href="{% url 'category_detail' category.id %}" class="r-product-img">
+                <img src="{{category.category_box_image.url}}" />
+            </a>
+            <!--text-->
+            <div class="r-product-text">
+                <!--title-->
+                <strong class="product-box-p-name">{{category.name}}</strong>
+                
+                <a href="{% url 'category_detail' category.id %}">View More</a>
+            </div>
+        </div><!--box-end-->
+        {% endfor %}
+    
+    </div>
+
+    <a href="{% url 'all_category' %}" class="category-view-all-btn">See All Watches</a>
+
+</section><!--recent-end-->
+
+
+
+
+
+
+
+<!--==Popular-product's===========================-->
+<section id="popular-product">
+
+    <!--**heading********************-->
+    <div class="product-heading">
+        <h3>Recent Product's</h3>
+        <a href="{% url 'all_category' %}">All</a>
+    </div>
+
+    <!--**container*****************-->
+    <div class="popular-product-container">
+        {% for recent in recent|slice:"10" %}
+        <!--**box1***-->
+        <div class="product-box">
+            <!--img-->
+            <a href="{% url 'svg_icon_detail' recent.slug %}" class="product-img">
+                <img src="{{recent.product_images.first.image.url}}" alt="{{recent.title}}">
+            </a>
+            <!--text-->
+            <div class="product-text">
+                <!--title-->
+                <a href="{% url 'svg_icon_detail' recent.slug %}" class="product-box-p-name">{{recent.title}}</a>
+                <!--category-->
+                <span class="p-box-category">
+                    <a>{{recent.category}}</a>
+                </span>
+                <!--details-->
+                <p>{{recent.details}}</p>
+                <!--price-->
+                <span class="p-box-price">Price: {{recent.price}}$</span>
+            </div>
+        </div><!--box-end-->
+        {% endfor %}
+
+    </div>
+
+</section><!--==popular-end===-->
+
+
+<section id="about-us">
+    <div class="about-us-heading">
+        <h3>Who is {{sitedata.site_name}}</h3>
+        <strong>Our Advantage</strong>
+    </div>
+    <div class="about-us-container">
+    <!--***text********************-->
+    <div class="about-us-text">
+        <h1>{{homeabout.heading}}</h1>
+        <p>{{homeabout.paragrph}}</p>
+    </div>
+    <!--**img**********************-->
+    <div class="about-us-img">
+        <iframe
+        src="{{homeabout.video_link}}">
+        </iframe> 
+    </div>
+</div>
+</section>
+
+<section id="whatwedo">
+    <img src="{{whatwedo.banner_image.url}}" alt="{{whatwedo.title}}">
+    <div class="whatwedo-text">
+        <h3>{{whatwedo.title}}</h3>
+        <p>{{whatwedo.paragraph}}</p>
+        <a href="{% url 'contact' %}">Inquiry</a>
+    </div>
+</section>
+
+    <!--**blog-section************-->
+    <section id="blog">
+        <!--blog-heading-->
+        <div class="blog-heading">
+            <h3>What will you gain?</h3>
+            <span>Same price, superior quality; Equal quality, better deal</span>
+        </div>
+  
+  
+        <!--container-->
+        <div class="blog-container">
+        {% for whatgain in whatgain %}
+          <!--box-->
+          <div class="blog-box">
+  
+            <!--img-->
+            <div class="blog-img">
+              <img alt="{{whatgain.title}}" src="{{whatgain.image.url}}">
+            </div>
+            <!--text-->
+            <div class="blog-text">
+              <a class="blog-title">{{whatgain.title}}</a>
+              <p>{{whatgain.paragraph}}</p>
+            </div>
+  
+          </div>
+          {% endfor %}
+  
+  
+        </div>
+  
+      </section>
+
+
+
+      <section id="certificate">
+             <!--blog-heading-->
+             <div class="blog-heading">
+                <h3>Certificate Display</h3>
+                <span>Please feel free to contact our wholesale team for the relevant certificates you need.</span>
+            </div>
+        <div class="swiper mySwiperCertificate">
+            <div class="swiper-wrapper">
+            {% for certificate in certificate %}
+              <div class="swiper-slide">
+                <img src="{{certificate.certificate_image.url}}" alt="certificate {{certificate.id}}" />
+              </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+      </section>
+
+
+
+<!--==contact===============================-->
+<section class="home-contact">
+
+    <!--text-->
+    <div class="h-contact-text">
+        <span>Support</span>
+        <h3>Need Any Help?</h3>
+        <a href="{% url 'contact' %}">Contact Us</a>
+    </div>
+    <!--img-->
+    <img src="{% static 'images/contact_bg.webp' %}" class="contact-bg-right" />
+    <img src="{% static 'images/contact_bg1.jpg' %}" class="contact-bg-left">
+
+</section><!--contact-end-->
+
+
+<!--==Services==============================-->
+<section class="services">
+
+    <!--**box1**************-->
+    <div class="services-box">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>Fast Shipping</span>
+        <p>Fast Shipping for all Us Order's</p>
+    </div>
+    <!--**box2**************-->
+    <div class="services-box">
+        <i class="fa-solid fa-headphones-simple"></i>
+        <span>Support 24/7</span>
+        <p>We Support 24h a day</p>
+    </div>
+    <!--**box**************-->
+    <div class="services-box">
+        <i class="fa-solid fa-rotate"></i>
+        <span>100% Money back</span>
+        <p>You Have 30 Day's To Return's</p>
+    </div>
+
+</section><!--services-end-->
+
+{% endblock article_content %}
+{% block body_script %}
+ <!-- Swiper JS -->
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+ <!-- Initialize Swiper -->
+ <script>
+    var swiper = new Swiper(".mySwiperCertificate", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+
+    var swiper = new Swiper(".mySwiperBanner", {
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+          },
+    });
+  </script>
+
+  {% endblock body_script %}

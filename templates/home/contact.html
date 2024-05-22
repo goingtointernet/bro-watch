@@ -1,0 +1,51 @@
+{% extends 'layout/base.html' %} <!--get all content from base.html-->
+
+{% load static %}
+
+<!--==Title========================-->
+{% block title %}Contact Us - {{sitedata.site_name}}{% endblock title %}
+
+
+{% block meta_tags %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="If you any query or question, please contact us.">
+<meta name="keywords" content="Contact - {{sitedata.site_name}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{sitedata.site_url}}/contact">
+<meta property="og:title" content="Contact Us - {{sitedata.site_name}}">
+<meta property="og:description" content="If you any query or question, please contact us.">
+{% endblock meta_tags %}
+
+<!--==Body=========================-->
+{% block article_content %}
+
+
+<section id="contact-page">
+    <div class="contact-page-img">
+        <img src="{% static 'images/contact/contact_page.svg' %}" alt="">
+    </div>
+    <div class="contact-page">
+        <h1>Leave Your Message</h1>
+
+        {% if messages %}
+        <ul class="messages-profile">
+        {% for message in messages %}
+            <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        <!--==Form===================-->
+        <form class="contact-form" method="POST" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="*Full Name" required/>
+            <input type="email" name="email" placeholder="*Email (We will reply with via email in 24 hours)" required/>
+            <input type="number" name="phone" placeholder="*Phone/Whatsapp/WeChat(Very Important)" required/>
+            <textarea placeholder="*Enter product details such as size, color, materials, etc. and specific requirements to receive an accurate quote." name="message" required></textarea>
+            <input type="submit" value="Send"/>
+        </form>
+    </div>
+</section>
+
+
+
+{% endblock article_content %}

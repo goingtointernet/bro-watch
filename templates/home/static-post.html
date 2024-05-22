@@ -1,0 +1,44 @@
+{% extends 'layout/base.html' %} <!--get all content from base.html-->
+
+{% load static %}
+
+<!--==Title========================-->
+{% block title %} {{staticpost.title}}{% endblock title %}
+
+
+{% block meta_tags %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="{{staticpost.meta_desc}}">
+<meta name="keywords" content="{{staticpost.meta_key}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{sitedata.site_url}}/{{staticpost.slug}}">
+<meta property="og:title" content="{{staticpost.title}}">
+<meta property="og:description" content="{{staticpost.meta_desc}}">
+{% endblock meta_tags %}
+
+<!--==Body=========================-->
+{% block article_content %}
+
+
+<!--==Static-page=========================-->
+<section class="static-page">
+
+    <div class="static-container">
+
+        <div class="static-title">
+            <span class="static-page-title-label">Title</span>
+            <h1>{{staticpost.title}}</h1>
+        </div>
+
+        <div class="static-content">
+            <p>{{staticpost.content| safe}}</p>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+{% endblock article_content %}
