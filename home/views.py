@@ -140,6 +140,6 @@ def contact(request):
         Client Phone Number: {}
         Client Message:{}
         '''.format(data['name'], data['email'], data['phone'], data['message'])
-        send_mail("Inquiry Message - Contact", message, '',[settings.EMAIL_HOST_USER])
+        send_mail("Inquiry Message - Contact", message, '',[settings.EMAIL_HOST_USER], fail_silently=False,)
         messages.success(request, '*Sent Successfully')
     return render(request, 'home/contact.html')

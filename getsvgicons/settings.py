@@ -147,10 +147,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #User
 AUTH_USER_MODEL = 'account.User'
 
+from decouple import config
 #SMTP Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.chengmail.cn'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'touseeqijazpro1@gmail.com'
-EMAIL_HOST_PASSWORD = 'dwla tjgk bngn qmwa'
+EMAIL_USE_TLS = True 
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD =  config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
