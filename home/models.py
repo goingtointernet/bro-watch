@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from jsonfield import JSONField
 
 # Banner Image
 class HomeBannerImages(models.Model):
@@ -86,6 +85,21 @@ class StaticPosts(models.Model):
         return reverse("staticpost",args=[self.slug])
     
 
+# Static-Pages.
+class NewsPosts(models.Model):
+    banner_image = models.ImageField( upload_to = 'news', null=True)
+    title = models.CharField(max_length=160)
+    meta_desc = models.CharField(max_length=160)
+    meta_key = models.CharField(max_length=260)
+    content = models.TextField()
+    slug = models.CharField(max_length=70, unique=True)
+
+    def __str__(self):
+        return self.title
+    def get_absolute_url(self):
+        return reverse("newspost",args=[self.slug])
+    
+
 
 # Site-Data.
 class SiteData(models.Model):
@@ -119,7 +133,15 @@ class SiteData(models.Model):
 class HomeAboutSection(models.Model):
     heading = models.CharField(max_length=260, default="")
     paragrph = models.TextField( default="")
-    video_link = models.CharField(max_length=260, default="")
+    video_file = models.FileField(upload_to='videos/', blank=True, null=True)
+    def __str__(self):
+        return self.heading
+    
+
+class WhatWeDoBox(models.Model):
+    img = models.ImageField( upload_to = 'whatwedo', null = True, blank = True)
+    heading = models.CharField(max_length=260, default="")
+    paragrph = models.TextField( default="")
     def __str__(self):
         return self.heading
 
@@ -137,3 +159,18 @@ class HomeGroups(models.Model):
     slug = models.CharField(max_length=70, unique=True, default="")
     def __str__(self):
         return self.heading
+    
+#home partners
+class HomePartners(models.Model):
+    heading =  models.CharField(max_length=260,  default="Contact Us", blank=True, null=True)
+    BackgroundImg = models.ImageField( upload_to = 'partners', null = True, blank = True)
+    paragraph =  models.TextField( default="")
+    def __str__(self):
+        return self.heading
+    
+class HomePartnerImage(models.Model):
+    home_partner = models.ForeignKey(HomePartners, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='home_partner_images')
+    
+    def __str__(self):
+        return f"Image for {self.home_partner.heading}"

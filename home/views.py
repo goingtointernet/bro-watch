@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from .models import HomeBannerImages,HomeAboutSection, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
+from .models import HomeBannerImages, NewsPosts, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -10,12 +10,16 @@ from django.conf import settings
 def index(request):
     home_groups = HomeGroups.objects.all()
     recent = Product.objects.all().order_by('-pk')
+    news = NewsPosts.objects.all().order_by('-pk')
     category = Category.objects.all().order_by('-pk')
     whatgain = WhatGain.objects.all()
     certificate = Certificate.objects.all()
     whatwedo = WhatWeDo.objects.all().first()
+    whatwedobox = WhatWeDoBox.objects.all().order_by("-pk")
     banner = HomeBannerImages.objects.all().order_by("-pk")
     homeabout = HomeAboutSection.objects.all().first()
+    home_partner = HomePartners.objects.first()
+    
     
     
     
@@ -24,7 +28,7 @@ def index(request):
         products = Product.objects.filter(category=group.category)
         grouped_products.append({'group': group, 'products': products})
     
-    context = {'grouped_products': grouped_products,'banner':banner,'homeabout':homeabout, 'category':category, 'recent':recent, 'whatgain':whatgain,'whatwedo':whatwedo, 'certificate':certificate}
+    context = {'grouped_products': grouped_products, 'news':news, 'home_partner':home_partner, 'banner':banner, 'whatwedobox':whatwedobox, 'homeabout':homeabout, 'category':category, 'recent':recent, 'whatgain':whatgain,'whatwedo':whatwedo, 'certificate':certificate}
     return render(request, 'home/index.html', context)
 
 #Product
@@ -93,7 +97,15 @@ def staticpost(request,slug):
     allpost = StaticPosts.objects.all()
     
     context = {'allpost': allpost,'staticpost':staticpost}
-    return render(request, 'home/static-post.html', context)    
+    return render(request, 'home/static-post.html', context)
+
+
+def newspost(request,slug):
+    staticpost = get_object_or_404(NewsPosts, slug=slug)
+    allpost = NewsPosts.objects.all()
+    
+    context = {'allpost': allpost,'staticpost':staticpost}
+    return render(request, 'home/news-post.html', context)
 
 
 def category_detail(request, category):

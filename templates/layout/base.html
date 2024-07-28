@@ -113,9 +113,28 @@
             <!--**menu***********-->
             <ul class="menu">
               <li><a href="/">Home</a></li>
-              {% for page in pages|slice:"4" %}
-                <li><a href="{% url 'index' %}{{page.slug}}">{{page.page_name}}</a></li>
-              {% endfor %}
+              <li class="nav-drop-down">
+                <input type="checkbox" id="show-drop-collections">
+                <label for="show-drop-collections" class="show-drop-collections">Product <i class="fa-solid fa-chevron-down"></i></label>
+                <div class="drop-collections">
+                  <strong class="drop-collections-heading">Shop By Collections</strong>  
+                  <div class="drop-collections-menu">
+                    {% for category in category|slice:"6" %}
+                    <a  href="{% url 'category_detail' category.id %}" class="nav-drop-box">
+                      <div class="drop-box-img">
+                        <img src="{{category.category_box_image.url}}" alt="{{category.name}}"/>
+                      </div>
+                      <div class="drop-box-text">
+                        <strong>{{category.name}}</strong>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </li>
+              <li><a href="/about-us">About Us</a></li>
+              <li><a href="/faqs">FAQs</a></li>
+              <li><a href="/news">News</a></li>
               <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </nav>

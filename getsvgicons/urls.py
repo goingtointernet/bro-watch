@@ -22,11 +22,12 @@ from django.conf.urls.static import static
 from django.urls import re_path as url
 from django.views.static import serve
 from django.views.generic.base import TemplateView 
-from home.sitemap import SvgIconsSitemap, PageSitemap
+from home.sitemap import SvgIconsSitemap, PageSitemap, NewsSitemap
 
 sitemaps = {
     'product': SvgIconsSitemap,
-    'pages': PageSitemap
+    'pages': PageSitemap,
+    'news': NewsSitemap,
 }
 
 urlpatterns = [

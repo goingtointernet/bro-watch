@@ -1,10 +1,12 @@
 from django.contrib import admin
 
-from .models import StaticPosts,Certificate,WhatWeDo,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
+from .models import StaticPosts,NewsPosts ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
 # Register static data
 admin.site.register(SiteData)
 # Register static post
 admin.site.register(StaticPosts)
+# Register News post
+admin.site.register(NewsPosts)
 # HomeAboutSection
 admin.site.register(HomeAboutSection)
 # Ads
@@ -29,3 +31,14 @@ admin.site.register(WhatGain)
 admin.site.register(Certificate)
 #WhatWeDo
 admin.site.register(WhatWeDo)
+admin.site.register(WhatWeDoBox)
+
+
+class HomePartnerImageInline(admin.TabularInline):
+    model = HomePartnerImage
+    extra = 1
+
+class HomePartnersAdmin(admin.ModelAdmin):
+    inlines = [HomePartnerImageInline]
+
+admin.site.register(HomePartners, HomePartnersAdmin)

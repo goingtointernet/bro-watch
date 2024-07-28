@@ -46,7 +46,87 @@
 
 
 
+<section id="about-us">
+    <div class="about-us-heading">
+        <h3>Who is {{sitedata.site_name}}</h3>
+        <strong>Our Advantage</strong>
+    </div>
+    <div class="about-us-container">
+    <!--***text********************-->
+    <div class="about-us-text">
+        <h1>{{homeabout.heading}}</h1>
+        <p>{{homeabout.paragrph}}</p>
+    </div>
+    <!--**img**********************-->
+    <div class="about-us-img" style="background-color:rgba(0,0,0,0.06); border-radius:10px; min-height:300px; width:100%;">
+        {% if homeabout.video_file %}
+        <video src="{{ homeabout.video_file.url }}" controls></video>
+        {% endif %} 
+    </div>
+</div>
+</section>
 
+<section id="whatwedo">
+    <img src="{{whatwedo.banner_image.url}}" alt="{{whatwedo.title}}">
+    <div class="whatwedo-text">
+        <h3>{{whatwedo.title}}</h3>
+        <p>{{whatwedo.paragraph}}</p>
+        <a href="{% url 'contact' %}">Inquiry</a>
+    </div>
+</section>
+
+<section class="whatwedo-box-container">
+<div class="whatwedo-box-wrapper">
+    {% for whatwedobox in whatwedobox  %}
+    <!--==box=================-->
+    <div class="whatwedo-box">
+        <div class="whatwedo-box-icon">
+            <img src="{{whatwedobox.img.url}}" alt="{{whatwedobox.heading}}">
+        </div>
+        <div class="whatwedo-box-text">
+            <strong>{{whatwedobox.heading}}</strong>
+            <p>{{whatwedobox.paragrph}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</section>
+
+    <!--**blog-section************-->
+    <section id="blog">
+        <!--blog-heading-->
+        <div class="blog-heading">
+            <h3>What will you gain?</h3>
+            <span>Same price, superior quality; Equal quality, better deal</span>
+        </div>
+  
+  
+        <!--container-->
+        <div class="blog-container">
+        {% for whatgain in whatgain %}
+          <!--box-->
+          <div class="blog-box">
+  
+            <!--img-->
+            <div class="blog-img">
+              <img alt="{{whatgain.title}}" src="{{whatgain.image.url}}">
+            </div>
+            <!--text-->
+            <div class="blog-text">
+              <a class="blog-title">{{whatgain.title}}</a>
+              <p>{{whatgain.paragraph}}</p>
+            </div>
+  
+          </div>
+          {% endfor %}
+  
+  
+        </div>
+  
+      </section>
+
+
+      
 <!--==Recent-Product=========================-->
 <section class="recent-product">
 
@@ -80,11 +160,6 @@
     <a href="{% url 'all_category' %}" class="category-view-all-btn">See All Watches</a>
 
 </section><!--recent-end-->
-
-
-
-
-
 
 
 <!--==Popular-product's===========================-->
@@ -126,70 +201,6 @@
 </section><!--==popular-end===-->
 
 
-<section id="about-us">
-    <div class="about-us-heading">
-        <h3>Who is {{sitedata.site_name}}</h3>
-        <strong>Our Advantage</strong>
-    </div>
-    <div class="about-us-container">
-    <!--***text********************-->
-    <div class="about-us-text">
-        <h1>{{homeabout.heading}}</h1>
-        <p>{{homeabout.paragrph}}</p>
-    </div>
-    <!--**img**********************-->
-    <div class="about-us-img">
-        <iframe
-        src="{{homeabout.video_link}}">
-        </iframe> 
-    </div>
-</div>
-</section>
-
-<section id="whatwedo">
-    <img src="{{whatwedo.banner_image.url}}" alt="{{whatwedo.title}}">
-    <div class="whatwedo-text">
-        <h3>{{whatwedo.title}}</h3>
-        <p>{{whatwedo.paragraph}}</p>
-        <a href="{% url 'contact' %}">Inquiry</a>
-    </div>
-</section>
-
-    <!--**blog-section************-->
-    <section id="blog">
-        <!--blog-heading-->
-        <div class="blog-heading">
-            <h3>What will you gain?</h3>
-            <span>Same price, superior quality; Equal quality, better deal</span>
-        </div>
-  
-  
-        <!--container-->
-        <div class="blog-container">
-        {% for whatgain in whatgain %}
-          <!--box-->
-          <div class="blog-box">
-  
-            <!--img-->
-            <div class="blog-img">
-              <img alt="{{whatgain.title}}" src="{{whatgain.image.url}}">
-            </div>
-            <!--text-->
-            <div class="blog-text">
-              <a class="blog-title">{{whatgain.title}}</a>
-              <p>{{whatgain.paragraph}}</p>
-            </div>
-  
-          </div>
-          {% endfor %}
-  
-  
-        </div>
-  
-      </section>
-
-
-
       <section id="certificate">
              <!--blog-heading-->
              <div class="blog-heading">
@@ -208,47 +219,68 @@
           </div>
       </section>
 
-
-
-<!--==contact===============================-->
-<section class="home-contact">
-
-    <!--text-->
-    <div class="h-contact-text">
-        <span>Support</span>
-        <h3>Need Any Help?</h3>
-        <a href="{% url 'contact' %}">Contact Us</a>
+{% if home_partner %}
+<section id="home-contact">
+    <img class="home-contact-bg" src="{{home_partner.BackgroundImg.url}}" alt="contact">
+    <h3>Partners</h3>
+    <div class="home-contact-container">
+        <div class="home-contact-slider">
+            <!-- Swiper -->
+            <div class="swiper mySwiperPartners">
+                <div class="swiper-wrapper">
+                    {% for image in home_partner.images.all %}
+                    <div class="swiper-slide">
+                        <img src="{{ image.image.url }}" alt="Image for {{ home_partner.heading }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <div class="home-contact-text">
+            <strong>{{ home_partner.heading }}</strong>
+            <p>{{ home_partner.paragraph }}</p>
+            <a href="{% url 'contact' %}">Inquiry</a>
+        </div>
     </div>
-    <!--img-->
-    <img src="{% static 'images/contact_bg.webp' %}" class="contact-bg-right" />
-    <img src="{% static 'images/contact_bg1.jpg' %}" class="contact-bg-left">
-
-</section><!--contact-end-->
+</section>
+{% endif %}
 
 
-<!--==Services==============================-->
-<section class="services">
-
-    <!--**box1**************-->
-    <div class="services-box">
-        <i class="fa-solid fa-truck-fast"></i>
-        <span>Fast Shipping</span>
-        <p>Fast Shipping for all Us Order's</p>
-    </div>
-    <!--**box2**************-->
-    <div class="services-box">
-        <i class="fa-solid fa-headphones-simple"></i>
-        <span>Support 24/7</span>
-        <p>We Support 24h a day</p>
-    </div>
-    <!--**box**************-->
-    <div class="services-box">
-        <i class="fa-solid fa-rotate"></i>
-        <span>100% Money back</span>
-        <p>You Have 30 Day's To Return's</p>
+<!--**blog-section************-->
+<section id="blog">
+    <!--blog-heading-->
+    <div class="blog-heading">
+        <h3>NEWS</h3>
+        <span>Discover more trends, innovations and knowledges in the watch industry.</span>
     </div>
 
-</section><!--services-end-->
+
+    <!--container-->
+    <div class="blog-container">
+    {% for news in news|slice:"3"  %}
+      <!--box-->
+      <div class="blog-box">
+
+        <!--img-->
+        <a href="{% url 'newspost' news.slug %}" class="blog-img">
+          <img alt="{{news.title}}" src="{{news.banner_image.url}}">
+        </a>
+        <!--text-->
+        <div class="blog-text">
+          <a href="{% url 'newspost' news.slug %}" class="blog-title">{{news.title}}</a>
+          <p>{{news.meta_desc}}</p>
+        </div>
+
+      </div>
+      {% endfor %}
+
+
+    </div>
+
+  </section>
+
 
 {% endblock article_content %}
 {% block body_script %}
@@ -262,6 +294,9 @@
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: "auto",
+      centeredSlides: true,
+      initialSlide: 3,
+      watchOverflow: true,
       coverflowEffect: {
         rotate: 50,
         stretch: 0,
@@ -279,6 +314,14 @@
             delay: 3500,
             disableOnInteraction: false,
           },
+    });
+
+
+    var swiper = new Swiper(".mySwiperPartners", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
     });
   </script>
 
