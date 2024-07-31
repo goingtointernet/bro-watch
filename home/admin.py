@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import StaticPosts,NewsPosts ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
+from .models import StaticPosts,NewsPosts,AddFaq, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
 # Register static data
 admin.site.register(SiteData)
 # Register static post
@@ -42,3 +42,13 @@ class HomePartnersAdmin(admin.ModelAdmin):
     inlines = [HomePartnerImageInline]
 
 admin.site.register(HomePartners, HomePartnersAdmin)
+
+
+class FaqsInline(admin.TabularInline):
+    model = Faqs
+    extra = 1
+
+class AddFaqAdmin(admin.ModelAdmin):
+    inlines = [FaqsInline]
+
+admin.site.register(AddFaq, AddFaqAdmin)

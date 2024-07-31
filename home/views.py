@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from .models import HomeBannerImages, NewsPosts, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
+from .models import HomeBannerImages, NewsPosts,AddFaq, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -31,6 +31,10 @@ def index(request):
     context = {'grouped_products': grouped_products, 'news':news, 'home_partner':home_partner, 'banner':banner, 'whatwedobox':whatwedobox, 'homeabout':homeabout, 'category':category, 'recent':recent, 'whatgain':whatgain,'whatwedo':whatwedo, 'certificate':certificate}
     return render(request, 'home/index.html', context)
 
+
+def faqs(request):
+    faqs = AddFaq.objects.all().order_by('-pk')
+    return render(request, 'home/faqs.html', {'faqs':faqs})
 #Product
 def svg_icon_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
@@ -90,6 +94,26 @@ def search(request):
 
     params={'products':  product_data, 'pagination':pagination, 'search':search, 'page_range':page_range}
     return render(request, 'home/search.html', params)
+
+
+#News
+def news(request):
+    p =  Paginator(NewsPosts.objects.all().order_by('-pk'), 12)
+    page = request.GET.get('page')
+    pagination = p.get_page(page)
+    product_data=pagination
+    current_numer = pagination.number
+    total_number = pagination.paginator.num_pages
+    if current_numer == total_number and current_numer != 0:
+        current_numer = current_numer - 1
+    if total_number == 1:
+        page_range = 1
+    else:
+        page_range =(current_numer, total_number)
+
+
+    params={'news':  product_data, 'pagination':pagination, 'page_range':page_range}
+    return render(request, 'home/all-news.html', params)
 
 #Static-post
 def staticpost(request,slug):

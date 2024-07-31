@@ -41,9 +41,16 @@ class WhatWeDo(models.Model):
     banner_image = models.ImageField( upload_to = 'WhatWeDo')
 
 #Faqs
+class AddFaq(models.Model):
+    heading = models.CharField(max_length=160)
+
+    def __str__(self):
+        return self.heading
+
 class Faqs(models.Model):
     question = models.CharField(max_length=260)
     answer = models.TextField()
+    heading = models.ForeignKey(AddFaq, related_name='faqs', on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.question
@@ -93,6 +100,7 @@ class NewsPosts(models.Model):
     meta_key = models.CharField(max_length=260)
     content = models.TextField()
     slug = models.CharField(max_length=70, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

@@ -17,7 +17,7 @@
 
 {% block article_content %}
 <div class="category-banner">
-    <img src="" alt="News">
+    <img src="{% static 'images/news-banner.jpg' %}" alt="News">
     <h1>News</h1>
 </div>
 <div class="main-product-container">
@@ -69,37 +69,35 @@
         {% if group.heading %}
         <h3>{{group.heading}}</h3>
         {% else %}
-        <h3>Category: <b>{{categoryName}}</b></h3>
+        <h3>All News</b></h3>
         {% endif %}
     </div>
 
 
-    <div class="popular-product-container">
-        {% for product in products %}
+    <div class="all-news-container">
+        {% for news in news %}
         <!--**box***-->
         <div class="product-box">
             <!--img-->
-            <a href="{% url 'svg_icon_detail' product.slug %}" class="product-img">
-                <img src="{{product.product_images.first.image.url}}" alt="{{product.title}}">
+            <a href="{% url 'newspost' news.slug %}" class="product-img">
+                <img src="{{news.banner_image.url}}" alt="{{news.title}}">
             </a>
             <!--text-->
             <div class="product-text">
                 <!--title-->
-                <a href="{% url 'svg_icon_detail' product.slug %}" class="product-box-p-name">{{product.title}}</a>
-                <!--category-->
-                <span class="p-box-category">
-                    <a>{{product.category}}</a>
-                </span>
+                <a href="{% url 'newspost' news.slug %}" class="product-box-p-name">{{news.title}}</a>
+                <!--date-->
+                <span>{{news.created_at}}</span>
                 <!--details-->
-                <p>{{product.details}}</p>
-                <!--price-->
-                <span class="p-box-price">Price: {{product.price}}$</span>
+                <p>{{news.meta_desc}}</p>
+                <!--read more-->
+                <a class="product-text-read" href="{% url 'newspost' news.slug %}">Read More</a>
             </div>
         </div><!--box-end-->
         {% endfor %}
     </div>
 
-    {% if products|length < 1 %} <div class="search-not-found">
+    {% if news|length < 1 %} <div class="search-not-found">
         <span style="color:red; font-size:0.8rem;">*No products added for this category yet</span>
     {% endif %}
     
@@ -107,13 +105,13 @@
     <!--page-number=====================-->
 <div class="page-number">
     {% if pagination.has_previous %}
-    <a href="{% url 'category_detail' categoryObj.id %}?page=1">&laquo;</a>
-    <a href="{% url 'category_detail' categoryObj.id %}?page={{pagination.previous_page_number}}">Previous</a>
+    <a href="{% url 'news' %}?page=1">&laquo;</a>
+    <a href="{% url 'news' %}?page={{pagination.previous_page_number}}">Previous</a>
     {% endif %}
 
     {% if pagination.has_next %}    
-    <a href="{% url 'category_detail' categoryObj.id %}?page={{pagination.next_page_number}}">Next</a>
-    <a href="{% url 'category_detail' categoryObj.id %}?page={{pagination.paginator.num_pages}}">&raquo;</a>
+    <a href="{% url 'news' %}?page={{pagination.next_page_number}}">Next</a>
+    <a href="{% url 'news' %}?page={{pagination.paginator.num_pages}}">&raquo;</a>
     {% endif %}
 </div>
 

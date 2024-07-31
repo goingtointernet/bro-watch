@@ -1,0 +1,75 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} FAQs - {{sitedata.site_name}}{% endblock title %}
+
+{% load static %}
+
+
+{% block meta_tags %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="{{sitedata.search_desc}}">
+<meta name="keywords" content="FAQs, {{sitedata.search_key}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FAQs - {{sitedata.site_name}}">
+<meta property="og:description" content=" {{sitedata.search_desc}}">
+{% endblock meta_tags %}
+
+
+{% block article_content %}
+<div class="category-banner">
+    <img src="{% static 'images/faqs.jpg' %}" alt="FAQs">
+    <h1>Frequently Asked Question's</h1>
+</div>
+
+<div class="faqs-page-container">
+
+    {% for faqs in faqs %}
+
+    <!-- faq -->
+    <div class="faq-box-container">
+        <h3>{{faqs.heading}}</h3>
+        {% for faqs  in faqs.faqs.all  %}
+        <div class="faq-box">
+            <div class="faq-box-question">
+                <h4>{{faqs.question}}</h4>
+                <span class="faq-box-icon"></span>
+            </div>
+            <div class="faq-box-answer">
+                <p>{{faqs.answer}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+</div>
+</section>
+
+
+
+
+
+
+    {% endblock article_content %}
+
+
+    {% block body_script %}
+    <script>
+        var faq = document.getElementsByClassName("faq-box-question");
+        var i;
+        for (i = 0; i < faq.length; i++) {
+            faq[i].addEventListener("click", function () {
+                /* Toggle between adding and removing the "active" class,
+                to highlight the button that controls the panel */
+                this.classList.toggle("active");
+                /* Toggle between hiding and showing the active panel */
+                var body = this.nextElementSibling;
+                if (body.style.maxHeight === "100px") {
+                    body.style.maxHeight = "0px";
+                } else {
+                    body.style.maxHeight = "100px";
+                }
+            });
+        }
+            </script>
+    {% endblock body_script %}
