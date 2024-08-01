@@ -1,0 +1,94 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} OEM/ODM - {{sitedata.site_name}}{% endblock title %}
+
+{% load static %}
+
+
+{% block meta_tags %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="{{sitedata.search_desc}}">
+<meta name="keywords" content="OEM/ODM, {{sitedata.search_key}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OEM/ODM - {{sitedata.site_name}}">
+<meta property="og:description" content=" {{sitedata.search_desc}}">
+{% endblock meta_tags %}
+
+
+{% block article_content %}
+<div class="category-banner">
+    <img src="{{oemodm.banner_image.url}}" alt="FAQs">
+    <h1>{{oemodm.heading}}</h1>
+</div>
+
+    <p class="oem-odm-p">{{oemodm.paragraph}}<p>
+
+<div class="oemodm-page-container">
+
+        {% for oem  in oemodm.oemodm.all  %}
+        <div class="oem-box">
+            <div class="oem-box-img">
+                <img src="{{oem.image.url}}" alt="{{oem.heading}}">
+            </div>
+            <div class="oem-box-text">
+                <strong>{{oem.heading}}</strong>
+                <p>{{oem.text|safe}}</p>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+</section>
+
+
+<section id="whatwedo" class="custome-oem-banner">
+    <img src="{{oemcutome.banner_image.url}}" alt="{{oemcutome.heading}}">
+    <div class="whatwedo-text">
+        <h3>{{oemcutome.heading}}</h3>
+    </div>
+</section>
+
+<section class="whatwedo-box-container custome-oem">
+<div class="whatwedo-box-wrapper">
+    {% for oembox in oemcutome.oemcustombox.all  %}
+    <!--==box=================-->
+    <div class="whatwedo-box">
+        <div class="whatwedo-box-icon">
+            <img src="{{oembox.image.url}}" alt="{{oembox.heading}}">
+        </div>
+        <div class="whatwedo-box-text">
+            <strong>{{oembox.heading}}</strong>
+            <p>{{oembox.text}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</section>
+
+
+
+
+
+
+    {% endblock article_content %}
+
+
+    {% block body_script %}
+    <script>
+        var faq = document.getElementsByClassName("faq-box-question");
+        var i;
+        for (i = 0; i < faq.length; i++) {
+            faq[i].addEventListener("click", function () {
+                /* Toggle between adding and removing the "active" class,
+                to highlight the button that controls the panel */
+                this.classList.toggle("active");
+                /* Toggle between hiding and showing the active panel */
+                var body = this.nextElementSibling;
+                if (body.style.maxHeight === "100px") {
+                    body.style.maxHeight = "0px";
+                } else {
+                    body.style.maxHeight = "100px";
+                }
+            });
+        }
+            </script>
+    {% endblock body_script %}

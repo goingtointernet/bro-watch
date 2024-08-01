@@ -54,6 +54,43 @@ class Faqs(models.Model):
 
     def __str__(self):
         return self.question
+    
+
+
+#OEM/ODM
+class OemOdm(models.Model):
+    banner_image = models.ImageField( upload_to = 'oemodm', null=True)
+    heading = models.CharField(max_length=160)
+    paragraph = models.TextField()
+
+    def __str__(self):
+        return self.heading
+
+class Oem(models.Model):
+    heading = models.CharField(max_length=260)
+    text = models.TextField()
+    image = models.ImageField( upload_to = 'oemodm', null=True)
+    main_heading = models.ForeignKey(OemOdm, related_name='oemodm', on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return self.heading
+    
+
+class OemCustom(models.Model):
+    banner_image = models.ImageField( upload_to = 'oemodm', null=True)
+    heading = models.CharField(max_length=160)
+
+    def __str__(self):
+        return self.heading
+
+class OemCustomBox(models.Model):
+    heading = models.CharField(max_length=260)
+    text = models.TextField()
+    image = models.ImageField( upload_to = 'oemodm', null=True)
+    main_heading = models.ForeignKey(OemCustom, related_name='oemcustombox', on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return self.heading
 
 # SVG Details.
 class Product(models.Model):

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import StaticPosts,NewsPosts,AddFaq, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
+from .models import StaticPosts,NewsPosts,OemCustom, OemCustomBox, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
 # Register static data
 admin.site.register(SiteData)
 # Register static post
@@ -52,3 +52,23 @@ class AddFaqAdmin(admin.ModelAdmin):
     inlines = [FaqsInline]
 
 admin.site.register(AddFaq, AddFaqAdmin)
+
+
+class OemInline(admin.TabularInline):
+    model = Oem
+    extra = 1
+
+class OemOdmAdmin(admin.ModelAdmin):
+    inlines = [OemInline]
+
+admin.site.register(OemOdm, OemOdmAdmin)
+
+
+class OemCustomBoxInline(admin.TabularInline):
+    model = OemCustomBox
+    extra = 1
+
+class OemCustomAdmin(admin.ModelAdmin):
+    inlines = [OemCustomBoxInline]
+
+admin.site.register(OemCustom, OemCustomAdmin)

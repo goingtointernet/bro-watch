@@ -3943,3 +3943,114 @@ footer{
             grid-template-columns: 1fr;
         }
     }
+
+
+/* oem-odm */
+.oem-odm-p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    color: #252525;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+.oemodm-page-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+.oem-box{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 20px;
+    align-items: flex-start;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 5px;
+}
+.oem-box-img{
+    width: 100%;
+    border: 1px solid #f1f1f1;
+    padding: 5px;
+    border-radius: 5px;
+}
+.oem-box-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.oem-box-text strong{
+    color: var(--second-main-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+.oem-box-text p{
+    color: var(--paragraph-color);
+    margin-top: 10px;
+    line-height: 1.6rem;
+}
+.oem-box-text p b{
+    color: #1a1a1a;
+    font-weight: 600;
+}
+.custome-oem .whatwedo-box-icon img{
+    height: 50px !important;
+    object-fit: contain;
+}
+.custome-oem .whatwedo-box-text strong{
+    font-size: 1.1rem;
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--second-main-color);
+}
+.custome-oem .whatwedo-box-wrapper{
+    align-items: initial;
+    grid-gap: 50px;
+}
+.custome-oem .whatwedo-box-text p{
+    margin-top: 10px;
+}
+.custome-oem .whatwedo-box{
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.05);
+}
+.custome-oem .whatwedo-box{
+    justify-content: flex-start;
+    padding: 0px 10px;
+    background-color: #ffffff;
+}
+.custome-oem-banner{
+    padding: 20px 0px !important;
+    min-height: 300px !important;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+@media(max-width:1100px){
+    
+.oemodm-page-container{
+    grid-template-columns: 1fr 1fr;
+}
+}
+@media(max-width:770px){   
+.custome-oem .whatwedo-box{
+    margin-bottom: 30px;
+}
+}
+@media(max-width:700px){
+    
+    .oemodm-page-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media(max-width:324px){
+    
+.oem-box{
+    grid-template-columns: 1fr;
+}
+}

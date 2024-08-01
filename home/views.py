@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from .models import HomeBannerImages, NewsPosts,AddFaq, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
+from .models import HomeBannerImages,OemCustom, NewsPosts,AddFaq,OemOdm, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -35,6 +35,13 @@ def index(request):
 def faqs(request):
     faqs = AddFaq.objects.all().order_by('-pk')
     return render(request, 'home/faqs.html', {'faqs':faqs})
+
+
+def oemodm(request):
+    oemodm = OemOdm.objects.all().first()
+    oemcutome = OemCustom.objects.all().first()
+    return render(request, 'home/oem-odm.html', {'oemodm':oemodm, 'oemcutome':oemcutome})
+
 #Product
 def svg_icon_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
