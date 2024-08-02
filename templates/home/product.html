@@ -13,7 +13,7 @@
 <meta property="og:url" content="{{sitedata.site_url}}{% url 'svg_icon_detail' product.slug %}">
 <meta property="og:title" content="{{product.title}}">
 <meta property="og:description" content="{{product.meta_desc}}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
 
 {% endblock meta_tags %}
 
@@ -141,7 +141,7 @@
 
 {% block body_script %}
 <!--==Jquery====================-->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 
 
   <!-- Initialize Swiper -->

@@ -15,7 +15,7 @@
 <meta property="og:description" content="{{sitedata.meta_desc}}">
 <meta property="og:image" content="{{sitedata.fav_icon.url}}">
 <!-- Link Swiper's CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
 
 {% endblock meta_tags %}
 
@@ -285,7 +285,7 @@
 {% endblock article_content %}
 {% block body_script %}
  <!-- Swiper JS -->
- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 
  <!-- Initialize Swiper -->
  <script>

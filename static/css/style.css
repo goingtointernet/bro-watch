@@ -3054,7 +3054,7 @@ footer{
 }
 .popular-product-container.category-container{
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
 }
 .popular-product-container.category-container .r-product-img{
     width: 180px !important;
