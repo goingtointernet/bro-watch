@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-03 16:12+0500\n"
+"PO-Revision-Date: 2024-08-03 16:22+0000\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\getsvgicons\settings.py:124
+msgid "English"
+msgstr "English"
+
+#: .\getsvgicons\settings.py:125
+msgid "Chinese"
+msgstr "Chinese"
+
+#: .\home\models.py:7 .\home\models.py:11 .\home\models.py:15
+#: .\home\models.py:30 .\home\models.py:73 .\home\models.py:90
+#: .\home\models.py:219
+msgid "image"
+msgstr "Image"
+
+#: .\home\models.py:19
+msgid "name"
+msgstr "Name"
+
+#: .\home\models.py:20
+msgid "category_box_image"
+msgstr "Category_box_image"
+
+#: .\home\models.py:21
+msgid "category_banner_img"
+msgstr "Category Banner Img"
+
+#: .\home\models.py:28 .\home\models.py:40 .\home\models.py:98
+#: .\home\models.py:120 .\home\models.py:136 .\home\models.py:152
+msgid "title"
+msgstr "Title"
+
+#: .\home\models.py:29 .\home\models.py:41 .\home\models.py:65
+#: .\home\models.py:213
+msgid "paragraph"
+msgstr "paragraph"
+
+#: .\home\models.py:36
+msgid "certificate_image"
+msgstr "Certificate Image"
+
+#: .\home\models.py:42 .\home\models.py:63 .\home\models.py:81
+#: .\home\models.py:135
+msgid "banner_image"
+msgstr "Certificate Image"
+
+#: .\home\models.py:46 .\home\models.py:64 .\home\models.py:71
+#: .\home\models.py:82 .\home\models.py:88 .\home\models.py:180
+#: .\home\models.py:189 .\home\models.py:203 .\home\models.py:211
+msgid "heading"
+msgstr "Heading"
+
+#: .\home\models.py:52
+msgid "question"
+msgstr "Question"
+
+#: .\home\models.py:53
+msgid "answer"
+msgstr "Answer"
+
+#: .\home\models.py:72 .\home\models.py:89
+msgid "text"
+msgstr "Text"
+
+#: .\home\models.py:99 .\home\models.py:121 .\home\models.py:137
+#: .\home\models.py:153
+msgid "meta_desc"
+msgstr "Meta Desc"
+
+#: .\home\models.py:100 .\home\models.py:122 .\home\models.py:138
+#: .\home\models.py:154
+msgid "meta_key"
+msgstr "Meta Key"
+
+#: .\home\models.py:101 .\home\models.py:204
+msgid "category"
+msgstr "Category"
+
+#: .\home\models.py:102
+msgid "product_images"
+msgstr "Product Images"
+
+#: .\home\models.py:103
+msgid "brand"
+msgstr "Brand"
+
+#: .\home\models.py:104
+msgid "model"
+msgstr "Model"
+
+#: .\home\models.py:105
+msgid "weight"
+msgstr "Weight"
+
+#: .\home\models.py:106
+msgid "waterproof"
+msgstr "waterproof"
+
+#: .\home\models.py:107
+msgid "feature"
+msgstr "Feature"
+
+#: .\home\models.py:108
+msgid "details"
+msgstr "Details"
+
+#: .\home\models.py:109
+msgid "price"
+msgstr "Price"
+
+#: .\home\models.py:110
+msgid "product_show_images"
+msgstr "Product Show Images"
+
+#: .\home\models.py:112 .\home\models.py:125 .\home\models.py:140
+#: .\home\models.py:205
+msgid "slug"
+msgstr "Slug"
+
+#: .\home\models.py:123
+msgid "page_name"
+msgstr "Page Name"
+
+#: .\home\models.py:124 .\home\models.py:139
+msgid "content"
+msgstr "Content"
+
+#: .\home\models.py:141
+msgid "created_at"
+msgstr "Created At"
+
+#: .\home\models.py:155
+msgid "logo"
+msgstr "Logo"
+
+#: .\home\models.py:156
+msgid "white_text_logo"
+msgstr "White Text Logo"
+
+#: .\home\models.py:157
+msgid "fav_icon"
+msgstr "Fav Icon"
+
+#: .\home\models.py:158
+msgid "email"
+msgstr "Email"
+
+#: .\home\models.py:159
+msgid "phone"
+msgstr "Phone"
+
+#: .\home\models.py:160
+msgid "whatsapp_link"
+msgstr "Whatsapp Link"
+
+#: .\home\models.py:161
+msgid "address"
+msgstr "Address"
+
+#: .\home\models.py:162
+msgid "facebook"
+msgstr "Facebook"
+
+#: .\home\models.py:163
+msgid "instagram"
+msgstr "Instagram"
+
+#: .\home\models.py:164
+msgid "twitter"
+msgstr "Twitter"
+
+#: .\home\models.py:165
+msgid "author"
+msgstr "Author"
+
+#: .\home\models.py:166
+msgid "site_name"
+msgstr "Site Name"
+
+#: .\home\models.py:167
+msgid "site_url"
+msgstr "Site Url"
+
+#: .\home\models.py:168
+msgid "made_by"
+msgstr "Made By"
+
+#: .\home\models.py:169
+msgid "copyright"
+msgstr "Copyright"
+
+#: .\home\models.py:170
+msgid "sidebar_contact_banner"
+msgstr "Sidebar Contact Banner"
+
+#: .\home\models.py:171
+msgid "search_key"
+msgstr "Search Key"
+
+#: .\home\models.py:172
+msgid "search_desc"
+msgstr "Search Description"
+
+#: .\home\models.py:173
+msgid "custome_css"
+msgstr "Custom CSS"
+
+#: .\home\models.py:174
+msgid "head_script"
+msgstr "Head Script"
+
+#: .\home\models.py:175
+msgid "bodyend_script"
+msgstr "Bodyend Script"
+
+#: .\home\models.py:176
+msgid "show_ads"
+msgstr "Show Ads"
+
+#: .\home\models.py:181 .\home\models.py:190
+msgid "paragrph"
+msgstr "Paragraph"
+
+#: .\home\models.py:182
+msgid "video_file"
+msgstr "Video File"
+
+#: .\home\models.py:188
+msgid "img"
+msgstr "Image"
+
+#: .\home\models.py:196
+msgid "head_ad"
+msgstr "Head Ad"
+
+#: .\home\models.py:197
+msgid "footer_ad"
+msgstr "Footer Ad"
+
+#: .\home\models.py:212
+msgid "BackgroundImg"
+msgstr "Background Image"

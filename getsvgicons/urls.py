@@ -23,6 +23,7 @@ from django.urls import re_path as url
 from django.views.static import serve
 from django.views.generic.base import TemplateView 
 from home.sitemap import SvgIconsSitemap, PageSitemap, NewsSitemap
+from django.conf.urls.i18n import i18n_patterns
 
 sitemaps = {
     'product': SvgIconsSitemap,
@@ -30,16 +31,17 @@ sitemaps = {
     'news': NewsSitemap,
 }
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     path('admin/', admin.site.urls),
+    path('rosetta/', include('rosetta.urls')),
     path('sitemap.xml', sitemap, {'sitemaps':sitemaps}),
     path("robots.txt",TemplateView.as_view(template_name="seo/robots.txt", content_type="text/plain")),  #add the robots.txt file
     path("ads.txt",TemplateView.as_view(template_name="seo/ads.txt", content_type="text/plain")),  #add the ads.txt file
     path('', include('home.urls')),
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404= 'home.views.error_404_view'
 handler400= 'home.views.error_400_view'

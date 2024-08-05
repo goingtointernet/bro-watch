@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-03 16:12+0500\n"
+"PO-Revision-Date: 2024-08-03 16:31+0000\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\getsvgicons\settings.py:124
+msgid "English"
+msgstr "英语"
+
+#: .\getsvgicons\settings.py:125
+msgid "Chinese"
+msgstr "中国人"
+
+#: .\home\models.py:7 .\home\models.py:11 .\home\models.py:15
+#: .\home\models.py:30 .\home\models.py:73 .\home\models.py:90
+#: .\home\models.py:219
+msgid "image"
+msgstr "图像"
+
+#: .\home\models.py:19
+msgid "name"
+msgstr "姓名"
+
+#: .\home\models.py:20
+msgid "category_box_image"
+msgstr "类别框图像"
+
+#: .\home\models.py:21
+msgid "category_banner_img"
+msgstr "类别横幅图像"
+
+#: .\home\models.py:28 .\home\models.py:40 .\home\models.py:98
+#: .\home\models.py:120 .\home\models.py:136 .\home\models.py:152
+msgid "title"
+msgstr "标题"
+
+#: .\home\models.py:29 .\home\models.py:41 .\home\models.py:65
+#: .\home\models.py:213
+msgid "paragraph"
+msgstr "段落"
+
+#: .\home\models.py:36
+msgid "certificate_image"
+msgstr "证书图片"
+
+#: .\home\models.py:42 .\home\models.py:63 .\home\models.py:81
+#: .\home\models.py:135
+msgid "banner_image"
+msgstr "横幅图像"
+
+#: .\home\models.py:46 .\home\models.py:64 .\home\models.py:71
+#: .\home\models.py:82 .\home\models.py:88 .\home\models.py:180
+#: .\home\models.py:189 .\home\models.py:203 .\home\models.py:211
+msgid "heading"
+msgstr "标题"
+
+#: .\home\models.py:52
+msgid "question"
+msgstr "问题"
+
+#: .\home\models.py:53
+msgid "answer"
+msgstr "回答"
+
+#: .\home\models.py:72 .\home\models.py:89
+msgid "text"
+msgstr "文本"
+
+#: .\home\models.py:99 .\home\models.py:121 .\home\models.py:137
+#: .\home\models.py:153
+msgid "meta_desc"
+msgstr "元描述"
+
+#: .\home\models.py:100 .\home\models.py:122 .\home\models.py:138
+#: .\home\models.py:154
+msgid "meta_key"
+msgstr "元关键字"
+
+#: .\home\models.py:101 .\home\models.py:204
+msgid "category"
+msgstr "类别"
+
+#: .\home\models.py:102
+msgid "product_images"
+msgstr "产品图片"
+
+#: .\home\models.py:103
+msgid "brand"
+msgstr "品牌"
+
+#: .\home\models.py:104
+msgid "model"
+msgstr "模型"
+
+#: .\home\models.py:105
+msgid "weight"
+msgstr "重量"
+
+#: .\home\models.py:106
+msgid "waterproof"
+msgstr "防水的"
+
+#: .\home\models.py:107
+msgid "feature"
+msgstr "特征"
+
+#: .\home\models.py:108
+msgid "details"
+msgstr "细节"
+
+#: .\home\models.py:109
+msgid "price"
+msgstr "价格"
+
+#: .\home\models.py:110
+msgid "product_show_images"
+msgstr "产品展示图片"
+
+#: .\home\models.py:112 .\home\models.py:125 .\home\models.py:140
+#: .\home\models.py:205
+msgid "slug"
+msgstr "永久链接"
+
+#: .\home\models.py:123
+msgid "page_name"
+msgstr "页面名称"
+
+#: .\home\models.py:124 .\home\models.py:139
+msgid "content"
+msgstr "内容"
+
+#: .\home\models.py:141
+msgid "created_at"
+msgstr "创建时间"
+
+#: .\home\models.py:155
+msgid "logo"
+msgstr "标识"
+
+#: .\home\models.py:156
+msgid "white_text_logo"
+msgstr "白色文字标志"
+
+#: .\home\models.py:157
+msgid "fav_icon"
+msgstr "网站图标图像"
+
+#: .\home\models.py:158
+msgid "email"
+msgstr "电子邮件"
+
+#: .\home\models.py:159
+msgid "phone"
+msgstr "电话号码"
+
+#: .\home\models.py:160
+msgid "whatsapp_link"
+msgstr "WhatsApp 链接"
+
+#: .\home\models.py:161
+msgid "address"
+msgstr "地址"
+
+#: .\home\models.py:162
+msgid "facebook"
+msgstr "Facebook"
+
+#: .\home\models.py:163
+msgid "instagram"
+msgstr "instagram"
+
+#: .\home\models.py:164
+msgid "twitter"
+msgstr "twitter"
+
+#: .\home\models.py:165
+msgid "author"
+msgstr "作者"
+
+#: .\home\models.py:166
+msgid "site_name"
+msgstr "网站名称"
+
+#: .\home\models.py:167
+msgid "site_url"
+msgstr "网址"
+
+#: .\home\models.py:168
+msgid "made_by"
+msgstr "由制成"
+
+#: .\home\models.py:169
+msgid "copyright"
+msgstr "版权"
+
+#: .\home\models.py:170
+msgid "sidebar_contact_banner"
+msgstr "侧边栏联系人横幅"
+
+#: .\home\models.py:171
+msgid "search_key"
+msgstr "搜索关键词"
+
+#: .\home\models.py:172
+msgid "search_desc"
+msgstr "搜索描述"
+
+#: .\home\models.py:173
+msgid "custome_css"
+msgstr "自定义CSS"
+
+#: .\home\models.py:174
+msgid "head_script"
+msgstr "头脚本"
+
+#: .\home\models.py:175
+msgid "bodyend_script"
+msgstr "正文结束脚本"
+
+#: .\home\models.py:176
+msgid "show_ads"
+msgstr "显示广告"
+
+#: .\home\models.py:181 .\home\models.py:190
+msgid "paragrph"
+msgstr "段落"
+
+#: .\home\models.py:182
+msgid "video_file"
+msgstr "视频文件"
+
+#: .\home\models.py:188
+msgid "img"
+msgstr "图像"
+
+#: .\home\models.py:196
+msgid "head_ad"
+msgstr "头部广告"
+
+#: .\home\models.py:197
+msgid "footer_ad"
+msgstr "页脚广告"
+
+#: .\home\models.py:212
+msgid "BackgroundImg"
+msgstr "背景图"

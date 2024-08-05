@@ -5,7 +5,6 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.conf import settings
-
 # Index
 def index(request):
     home_groups = HomeGroups.objects.all()
