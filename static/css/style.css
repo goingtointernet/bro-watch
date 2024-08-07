@@ -4096,3 +4096,11 @@ footer{
 .popular-product-container.category-product-container {
     grid-template-columns: 1fr 1fr 1fr;
 }
+@media(min-width:1000px){
+    .fixedbody .sidebar-recent-product{
+        padding-top: 110px !important;
+    }}
+@media(min-width:724px) and (max-width:1000px){
+.fixedbody .sidebar-recent-product{
+    padding-top: 70px !important;
+}}
