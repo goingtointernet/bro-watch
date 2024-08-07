@@ -89,7 +89,7 @@
                 <a href="{% url 'svg_icon_detail' product.slug %}" class="product-box-p-name">{{product.title}}</a>
                 <!--category-->
                 <span class="p-box-category">
-                    <a href="javascript:void(0)">{{product.category}}</a>
+                    <a href="{% url 'category_detail' product.category.id %}">{{product.category}}</a>
                 </span>
                 <!--details-->
                 <p>{{product.details}}</p>

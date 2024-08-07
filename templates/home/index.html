@@ -186,7 +186,7 @@
                 <a href="{% url 'svg_icon_detail' recent.slug %}" class="product-box-p-name">{{recent.title}}</a>
                 <!--category-->
                 <span class="p-box-category">
-                    <a href="javascript:void(0)" aria-label="{{recent.category}}">{{recent.category}}</a>
+                    <a href="{% url 'category_detail' recent.category.id %}" aria-label="{{recent.category}}">{{recent.category}}</a>
                 </span>
                 <!--details-->
                 <p>{{recent.details}}</p>
