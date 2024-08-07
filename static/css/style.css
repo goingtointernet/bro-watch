@@ -4141,3 +4141,13 @@ footer{
 #language-dropdown-check{
     display: none;
 }
+.alibaba-icon svg{
+    height: 30px !important;
+}
+.footer-social .alibaba-icon svg{
+    width: 30px !important;
+    transition: all ease 0.3s;
+}
+.footer-social .alibaba-icon:hover svg{
+    fill: var(--second-main-color);
+}
