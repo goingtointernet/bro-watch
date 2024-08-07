@@ -28,7 +28,7 @@
             </div>
                 <ul class="sidebar-category-menu">
                     {% for category in category  %}
-                    <li><a href="{% url 'category_detail' category.id %}">{{category.name}}</a></li>
+                    <li><a href="{% url 'category_detail' category.id %}" aria-label="{{category.name}}">{{category.name}}</a></li>
                     {% endfor %}
                 </ul>
         </div>
@@ -89,7 +89,7 @@
                 <a href="{% url 'svg_icon_detail' product.slug %}" class="product-box-p-name">{{product.title}}</a>
                 <!--category-->
                 <span class="p-box-category">
-                    <a>{{product.category}}</a>
+                    <a href="javascript:void(0)">{{product.category}}</a>
                 </span>
                 <!--details-->
                 <p>{{product.details}}</p>

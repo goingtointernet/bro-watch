@@ -2116,6 +2116,10 @@ header{
     font-size: 0.9rem;
     color: var(--second-main-color);
 }
+.r-product-text .p-box-category a,
+.product-text .p-box-category a{
+    color: var(--second-main-color);
+}
 .r-product-text .p-box-price,
 .product-text .p-box-price{
     color: #1d1d1d;

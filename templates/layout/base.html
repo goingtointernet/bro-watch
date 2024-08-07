@@ -50,11 +50,11 @@
               <div class="header-top-contact">
               <div class="header-top-contact-box">
                 <i class="fa-solid fa-envelope"></i>
-                <span><a href="mailto:{{sitedata.email}}"  aria-label="email" title="{{sitedata.email}}">{{sitedata.email}}</a></span>
+                <span><a href="mailto:{{sitedata.email}}"  aria-label="email" title="{{sitedata.email}}" aria-label="Go to email">{{sitedata.email}}</a></span>
               </div>
               <div class="header-top-contact-box">
                 <i class="fa-solid fa-phone"></i>
-                <span><a href="tel:{{sitedata.phone}}"  aria-label="phone" title="{{sitedata.phone}}">{{sitedata.phone}}</a></span>
+                <span><a href="tel:{{sitedata.phone}}"  aria-label="phone" title="{{sitedata.phone}}" aria-label="phone number">{{sitedata.phone}}</a></span>
               </div>
             </div>
               <!--track-->
@@ -94,7 +94,7 @@
                 <label for="language-dropdown-check" style="cursor: pointer; color:#ffffff; margin-left:14px; font-weight: 500; font-size: 0.8rem;">EN</label>
                 <input type="checkbox" id="language-dropdown-check" value="none">
                 <div class="language-dropdown">
-                  <a href="/">English</a>
+                  <a href="/" aria-label="Go to english version">English</a>
                   <a href="https://www.bro-watch.cn">Chinese</a>
                 </div>
               </div>
@@ -103,7 +103,7 @@
 
           <nav class="navigation">
             <!--**logo***********-->
-            <a href="{% url 'index' %}" class="logo" title="{{sitedata.site_name}}">
+            <a href="{% url 'index' %}" aria-label="{{sitedata.site_name}}" class="logo" title="{{sitedata.site_name}}">
               {% if sitedata.logo %}
               <img src="{{sitedata.logo.url}}" alt="{{sitedata.site_name}}">
               {% else %}
@@ -120,7 +120,7 @@
             <!--**menu***********-->
             <div class="menu-container">
             <ul class="menu">
-              <li><a href="/">Home</a></li>
+              <li><a href="/" aria-label="go to home page">Home</a></li>
               <li class="nav-drop-down">
                 <input type="checkbox" id="show-drop-collections">
                 <label for="show-drop-collections" class="show-drop-collections">Product <i class="fa-solid fa-chevron-down"></i></label>
@@ -140,11 +140,11 @@
                   </div>
                 </div>
               </li>
-              <li><a href="/oemodm/">OEM/ODM</a></li>
-              <li><a href="/about-us">About Us</a></li>
-              <li><a href="/faqs/">FAQs</a></li>
-              <li><a href="/news/">News</a></li>
-              <li><a href="{% url 'contact' %}">Contact</a></li>
+              <li><a href="/oemodm/" aria-label="go to OEM/ODM">OEM/ODM</a></li>
+              <li><a href="/about-us" aria-label="go to about page">About Us</a></li>
+              <li><a href="/faqs/" aria-label="go to faqs page">FAQs</a></li>
+              <li><a href="/news/" aria-label="go to news page">News</a></li>
+              <li><a href="{% url 'contact' %}" aria-label="go to contact page">Contact</a></li>
             </ul>
           </div>
         </nav>
@@ -197,7 +197,7 @@
         <!--**company**-->
         <div class="footer-company-box">
             <!--logo-->
-            <a href="#" class="footer-logo">
+            <a href="#" aria-label="{{sitedata.site_name}}" class="footer-logo">
               <img src="{{sitedata.white_text_logo.url}}" alt="{{sitedata.site_name}}">
             </a>
             <!--details-->
@@ -205,13 +205,13 @@
             <!--social-box-->
             <div class="footer-social">
                 {% if sitedata.facebook %}
-                <a href="{{sitedata.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="{{sitedata.facebook}}" aria-label="facebook"><i class="fa-brands fa-facebook-f"></i></a>
                 {% endif %}
                 {% if sitedata.instagram %}
-                <a href="{{sitedata.instagram}}"><i class="fa-brands fa-instagram"></i></a>
+                <a href="{{sitedata.instagram}}" aria-label="instagram"><i class="fa-brands fa-instagram"></i></a>
                 {% endif %}
                 {% if sitedata.twitter %}
-                <a href="{{sitedata.twitter}}"><i class="fa-brands fa-twitter"></i></a>
+                <a href="{{sitedata.twitter}}" aria-label="twitter"><i class="fa-brands fa-twitter"></i></a>
                 {% endif %}
             </div>
         </div>
@@ -220,9 +220,9 @@
         <div class="footer-link-box">
             <strong>Main Link's</strong>
             <ul>
-              <li><a href="/">Home</a></li>
+              <li><a href="/" aria-label="go to home page">Home</a></li>
               {% for page in pages %}
-              <li><a href="{% url 'index' %}{{page.slug}}">{{page.page_name}}</a></li>
+              <li><a href="{% url 'index' %}{{page.slug}}" aria-label="go to {{page.page_name}}">{{page.page_name}}</a></li>
               {% endfor %}
             </ul>
         </div>
@@ -232,7 +232,7 @@
             <strong>Recent Product's</strong>
             <ul>
               {% for product in recentProduct|slice:"4"  %}
-                <li><a href="{% url 'svg_icon_detail' product.slug %}">{{product.title}}</a></li>
+                <li><a href="{% url 'svg_icon_detail' product.slug %}"  aria-label="{{product.title}}">{{product.title}}</a></li>
               {% endfor %}
             </ul>
         </div>

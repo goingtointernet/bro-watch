@@ -30,7 +30,7 @@
             </div>
                 <ul class="sidebar-category-menu">
                     {% for category in category  %}
-                    <li><a href="{% url 'category_detail' category.id %}">{{category.name}}</a></li>
+                    <li><a href="{% url 'category_detail' category.id %}" aria-label="{{category.name}}">{{category.name}}</a></li>
                     {% endfor %}
                 </ul>
         </div>
@@ -41,7 +41,7 @@
             </div>
             <strong>WE CAN HELP YOU</strong>
             <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
-            <a href="{% url 'contact' %}">Contact Us</a>
+            <a href="{% url 'contact' %}" aria-label="contact us">Contact Us</a>
         </div>
 
         <div class="sidebar-recent-product">
@@ -51,9 +51,9 @@
             </div>
             {% for product in recentProduct|slice:"3"  %}
             <div class="sidebar-recent-box">
-                <a href="{% url 'svg_icon_detail' product.slug %}" class="sidebar-recent-box-img"><img src="{{product.product_images.first.image.url}}" title="{{product.title}}"></a>
+                <a href="{% url 'svg_icon_detail' product.slug %}" aria-label="{{product.title}}" class="sidebar-recent-box-img"><img src="{{product.product_images.first.image.url}}" title="{{product.title}}"></a>
                 <div class="sidebar-recent-box-text">
-                    <a href="{% url 'svg_icon_detail' product.slug %}">{{product.title}}</a>
+                    <a href="{% url 'svg_icon_detail' product.slug %}" aria-label="{{product.title}}">{{product.title}}</a>
                     <span></span>
                     <span></span>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="swiper-wrapper">
                     {% for images in product.product_images.all %}
                     <div class="swiper-slide">
-                        <img src="{{images.image.url}}" />
+                        <img src="{{images.image.url}}" alt="{{product.title}}"/>
                     </div>
                     {% endfor %}
                 </div>
@@ -85,7 +85,7 @@
                 <div class="swiper-wrapper">
                     {% for images in product.product_images.all %}
                     <div class="swiper-slide">
-                        <img src="{{images.image.url}}" />
+                        <img src="{{images.image.url}}" alt="{{product.title}}"/>
                     </div>
                     {% endfor %}
                 </div>
@@ -107,9 +107,9 @@
             <!--price-->
             <span class="price"><span style="font-size:16px; font-weight:500;">Price:</span> {{product.price}}$</span>
             <div class="product-contact-btns">
-                <a href="{% url 'contact' %}"><i class="fa-solid fa-comment"></i>Inquire Now</a>
-                <a href="{{sitedata.whatsapp_link}}" target="_blank" > <i class="fab fa-whatsapp"></i>WhatsApp</a>
-                <a href="mailto:{{sitedata.email}}" > <i class="fa-solid fa-envelope"></i>Email</a>
+                <a href="{% url 'contact' %}" aria-label="Inquire Now"><i class="fa-solid fa-comment"></i>Inquire Now</a>
+                <a href="{{sitedata.whatsapp_link}}" target="_blank" aria-label="Go to whatsapp"> <i class="fab fa-whatsapp"></i>WhatsApp</a>
+                <a href="mailto:{{sitedata.email}}" > <i class="fa-solid fa-envelope" aria-label="Contact with email"></i>Email</a>
             </div>
         </div>
 
@@ -126,7 +126,7 @@
     <section class="d-product-show">
         <h2>Product Show</h2>
         {% for showImages in product.product_show_images.all %}
-        <img src="{{showImages.image.url}}" />
+        <img src="{{showImages.image.url}}"  alt="Product Show"/>
         {% endfor %}
     </section>
 

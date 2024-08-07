@@ -27,7 +27,7 @@
             </div>
                 <ul class="sidebar-category-menu">
                     {% for category in category  %}
-                    <li><a href="{% url 'category_detail' category.id %}">{{category.name}}</a></li>
+                    <li><a href="{% url 'category_detail' category.id %}" aria-label="Go to {{category.name}}" >{{category.name}}</a></li>
                     {% endfor %}
                 </ul>
         </div>
@@ -38,7 +38,7 @@
             </div>
             <strong>WE CAN HELP YOU</strong>
             <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
-            <a href="{% url 'contact' %}">Contact Us</a>
+            <a href="{% url 'contact' %}" aria-label="Contact Us">Contact Us</a>
         </div>
 
         <div class="sidebar-recent-product">
@@ -48,9 +48,9 @@
             </div>
             {% for product in recentProduct|slice:"3"  %}
             <div class="sidebar-recent-box">
-                <a href="{% url 'svg_icon_detail' product.slug %}" class="sidebar-recent-box-img"><img src="{{product.product_images.first.image.url}}" title="{{product.title}}"></a>
+                <a href="{% url 'svg_icon_detail' product.slug %}" aria-label="{{product.title}}" class="sidebar-recent-box-img"><img src="{{product.product_images.first.image.url}}" title="{{product.title}}"></a>
                 <div class="sidebar-recent-box-text">
-                    <a href="{% url 'svg_icon_detail' product.slug %}">{{product.title}}</a>
+                    <a href="{% url 'svg_icon_detail' product.slug %}" aria-label="{{product.title}}">{{product.title}}</a>
                     <span></span>
                     <span></span>
                 </div>
@@ -75,13 +75,13 @@
         <!--*box*-->
         <div class="r-product-box r-category-box">
             <!--img-->
-            <a href="{% url 'category_detail' category.id %}" class="r-product-img">
-                <img src="{{category.category_box_image.url}}" />
+            <a href="{% url 'category_detail' category.id %}" aria-label="{{category.name}}" class="r-product-img">
+                <img src="{{category.category_box_image.url}}" alt="{{category.name}}"/>
             </a>
             <!--text-->
             <div class="r-product-text">
                 <!--title-->
-                <a href="{% url 'category_detail' category.id %}" class="product-box-p-name">{{category.name}}</a>
+                <a href="{% url 'category_detail' category.id %}" aria-label="{{category.name}}" class="product-box-p-name">{{category.name}}</a>
             </div>
         </div><!--box-end-->
         {% endfor %}
@@ -95,13 +95,13 @@
     <!--page-number=====================-->
 <div class="page-number">
     {% if pagination.has_previous %}
-    <a href="search?search={{search}}&page=1">&laquo;</a>
-    <a href="search?search={{search}}&page={{pagination.previous_page_number}}">Previous</a>
+    <a href="search?search={{search}}&page=1" aria-label="go to first page">&laquo;</a>
+    <a href="search?search={{search}}&page={{pagination.previous_page_number}}" aria-label="go to previous page">Previous</a>
     {% endif %}
 
     {% if pagination.has_next %}    
-    <a href="search?search={{search}}&page={{pagination.next_page_number}}">Next</a>
-    <a href="search?search={{search}}&page={{pagination.paginator.num_pages}}">&raquo;</a>
+    <a href="search?search={{search}}&page={{pagination.next_page_number}}" aria-label="go to next page">Next</a>
+    <a href="search?search={{search}}&page={{pagination.paginator.num_pages}}" aria-label="go to last page">&raquo;</a>
     {% endif %}
 </div>
 

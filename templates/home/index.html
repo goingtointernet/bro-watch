@@ -36,7 +36,7 @@
     <div class="swiper mySwiperBanner">
         <div class="swiper-wrapper">
         {% for banner in banner %}
-          <a href="{% url 'all_category' %}" class="swiper-slide">
+          <a href="{% url 'all_category' %}" class="swiper-slide" aria-label="go to all categories">
             <img src="{{banner.image.url}}" alt="Banner image">
           </a>
         {% endfor %}
@@ -71,7 +71,7 @@
     <div class="whatwedo-text">
         <h3>{{whatwedo.title}}</h3>
         <p>{{whatwedo.paragraph}}</p>
-        <a href="{% url 'contact' %}">Inquiry</a>
+        <a href="{% url 'contact' %}" aria-label="contact us">Inquiry</a>
     </div>
 </section>
 
@@ -109,11 +109,11 @@
   
             <!--img-->
             <div class="blog-img">
-              <img alt="{{whatgain.title}}" src="{{whatgain.image.url}}">
+              <img alt="{{whatgain.title}}" src="{{whatgain.image.url}}" alt="{{whatgain.title}}">
             </div>
             <!--text-->
             <div class="blog-text">
-              <a class="blog-title">{{whatgain.title}}</a>
+              <strong class="blog-title">{{whatgain.title}}</strong>
               <p>{{whatgain.paragraph}}</p>
             </div>
   
@@ -142,22 +142,22 @@
         <!--*box*-->
         <div class="r-product-box r-category-box">
             <!--img-->
-            <a href="{% url 'category_detail' category.id %}" class="r-product-img">
-                <img src="{{category.category_box_image.url}}" />
+            <a href="{% url 'category_detail' category.id %}" aria-label="{{category.name}}" class="r-product-img">
+                <img src="{{category.category_box_image.url}}" alt="{{category.name}}"/>
             </a>
             <!--text-->
             <div class="r-product-text">
                 <!--title-->
                 <strong class="product-box-p-name">{{category.name}}</strong>
                 
-                <a href="{% url 'category_detail' category.id %}">View More</a>
+                <a href="{% url 'category_detail' category.id %}" aria-label="view all categories">View More</a>
             </div>
         </div><!--box-end-->
         {% endfor %}
     
     </div>
 
-    <a href="{% url 'all_category' %}" class="category-view-all-btn">See All Watches</a>
+    <a href="{% url 'all_category' %}" aria-label="see all watches" class="category-view-all-btn">See All Watches</a>
 
 </section><!--recent-end-->
 
@@ -168,7 +168,7 @@
     <!--**heading********************-->
     <div class="product-heading">
         <h3>Recent Product's</h3>
-        <a href="{% url 'all_category' %}">All</a>
+        <a href="{% url 'all_category' %}" aria-label="go to all recent products">All</a>
     </div>
 
     <!--**container*****************-->
@@ -177,7 +177,7 @@
         <!--**box1***-->
         <div class="product-box">
             <!--img-->
-            <a href="{% url 'svg_icon_detail' recent.slug %}" class="product-img">
+            <a href="{% url 'svg_icon_detail' recent.slug %}" aria-label="{{recent.title}}" class="product-img">
                 <img src="{{recent.product_images.first.image.url}}" alt="{{recent.title}}">
             </a>
             <!--text-->
@@ -186,7 +186,7 @@
                 <a href="{% url 'svg_icon_detail' recent.slug %}" class="product-box-p-name">{{recent.title}}</a>
                 <!--category-->
                 <span class="p-box-category">
-                    <a>{{recent.category}}</a>
+                    <a href="javascript:void(0)" aria-label="{{recent.category}}">{{recent.category}}</a>
                 </span>
                 <!--details-->
                 <p>{{recent.details}}</p>
@@ -241,7 +241,7 @@
         <div class="home-contact-text">
             <strong>{{ home_partner.heading }}</strong>
             <p>{{ home_partner.paragraph }}</p>
-            <a href="{% url 'contact' %}">Inquiry</a>
+            <a href="{% url 'contact' %}" aria-label="contact us">Inquiry</a>
         </div>
     </div>
 </section>
@@ -264,12 +264,12 @@
       <div class="blog-box">
 
         <!--img-->
-        <a href="{% url 'newspost' news.slug %}" class="blog-img">
+        <a href="{% url 'newspost' news.slug %}" aria-label="{{news.title}}" class="blog-img">
           <img alt="{{news.title}}" src="{{news.banner_image.url}}">
         </a>
         <!--text-->
         <div class="blog-text">
-          <a href="{% url 'newspost' news.slug %}" class="blog-title">{{news.title}}</a>
+          <a href="{% url 'newspost' news.slug %}" aria-label="{{news.title}}" class="blog-title">{{news.title}}</a>
           <p>{{news.meta_desc}}</p>
         </div>
 
