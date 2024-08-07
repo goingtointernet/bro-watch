@@ -359,10 +359,10 @@ header{
 }
 @media(max-width:1000px){
     .navigation{
-        justify-content: space-between;
-        padding: 20px 0px;
+        justify-content: center;
+        padding: 20px 20px;
         position: relative;
-        width: 90%;
+        width: 100%;
     }
     .logo img{
         max-height: 30px;}
@@ -395,6 +395,7 @@ header{
     .navigation .menu li label{
         width: 100%;
         display: flex;
+        justify-content: center;
         align-items: center;
         margin: 0px;
         padding: 20px;
@@ -426,6 +427,10 @@ header{
         position: relative;
         user-select: none;
         z-index: 106;
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        transform: translateY(-50%);
     }
     .navigation .menu-icon .nav-icon{
         background-color: #181818;
@@ -2615,7 +2620,7 @@ footer{
 #product_details{
     display: grid;
     background-color: #ffffff;
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 1.1fr 1fr;
 
     width: 100%;
     margin: 0px auto 50px auto;
@@ -3021,7 +3026,7 @@ footer{
     padding-left: 3px;
 }
 .mySwiper2 .swiper-wrapper .swiper-slide img{
-    max-height: 250px;
+    max-height: 360px;
 }
 .mySwiper .swiper-wrapper .swiper-slide img{
     max-height: 80px;
@@ -4084,4 +4089,10 @@ footer{
 .oem-box{
     grid-template-columns: 1fr;
 }
+}
+
+.popular-product-container.search-product-container,
+.popular-product-container.category-container,
+.popular-product-container.category-product-container {
+    grid-template-columns: 1fr 1fr 1fr;
 }
