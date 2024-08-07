@@ -4104,3 +4104,36 @@ footer{
 .fixedbody .sidebar-recent-product{
     padding-top: 70px !important;
 }}
+
+.language-dropdown-container{
+    position: relative;
+}
+.language-dropdown{
+    position: absolute;
+    right: 0px;
+    top: calc(100% + 10px);
+    background-color: #ffffff;
+    display: none;
+    flex-direction: column;
+    z-index: 100;
+    border-radius: 2px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+}
+.language-dropdown a{
+    color: #000000;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+    width: 100%;
+    display: flex;
+    padding: 5px 10px;
+    transition: all ease 0.3s;
+}
+.language-dropdown a:hover{
+    color: var(--second-main-color);
+}
+#language-dropdown-check:checked ~ .language-dropdown{
+    display: flex;
+}
+#language-dropdown-check{
+    display: none;
+}
