@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     path('admin/', admin.site.urls),
+    path("summernote/", include("django_summernote.urls")),
     path('sitemap.xml', sitemap, {'sitemaps':sitemaps}),
     path("robots.txt",TemplateView.as_view(template_name="seo/robots.txt", content_type="text/plain")),  #add the robots.txt file
     path("ads.txt",TemplateView.as_view(template_name="seo/ads.txt", content_type="text/plain")),  #add the ads.txt file

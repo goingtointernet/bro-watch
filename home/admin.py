@@ -1,12 +1,29 @@
 from django.contrib import admin
-
+from django_summernote.widgets import SummernoteWidget 
+from django.db import models 
 from .models import StaticPosts,NewsPosts,SocialIcons, NavMenu, OemCustom, OemCustomBox, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
 # Register static data
 admin.site.register(SiteData)
 # Register static post
-admin.site.register(StaticPosts)
+# admin.site.register(StaticPosts)
+class StaticPostsAdmin(admin.ModelAdmin): 
+
+     formfield_overrides = { 
+            models.TextField: {'widget': SummernoteWidget}, 
+     } 
+
+admin.site.register(StaticPosts,StaticPostsAdmin)
 # Register News post
-admin.site.register(NewsPosts)
+# admin.site.register(NewsPosts)
+
+class NewsPostAdmin(admin.ModelAdmin): 
+
+     formfield_overrides = { 
+            models.TextField: {'widget': SummernoteWidget}, 
+     } 
+
+admin.site.register(NewsPosts,NewsPostAdmin)
+
 # HomeAboutSection
 admin.site.register(HomeAboutSection)
 # Ads
@@ -61,11 +78,15 @@ admin.site.register(AddFaq, AddFaqAdmin)
 class OemInline(admin.TabularInline):
     model = Oem
     extra = 1
+    formfield_overrides = { 
+            models.TextField: {'widget': SummernoteWidget}, 
+     } 
 
 class OemOdmAdmin(admin.ModelAdmin):
     inlines = [OemInline]
 
 admin.site.register(OemOdm, OemOdmAdmin)
+
 
 
 class OemCustomBoxInline(admin.TabularInline):
