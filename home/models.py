@@ -145,6 +145,23 @@ class NewsPosts(models.Model):
         return reverse("newspost",args=[self.slug])
     
 
+# SocialIcons
+class SocialIcons(models.Model):
+    social_icon_code = models.TextField()
+    name = models.CharField(max_length=160, default="")
+    link = models.CharField(max_length=160)
+
+    def __str__(self):
+        return self.name   
+
+# Menu
+class NavMenu(models.Model):
+    name = models.CharField(max_length=160)
+    link = models.CharField(max_length=160)
+
+    def __str__(self):
+        return self.name    
+
 
 # Site-Data.
 class SiteData(models.Model):
@@ -158,10 +175,12 @@ class SiteData(models.Model):
     phone = models.CharField(max_length=160, default="")
     whatsapp_link = models.CharField(max_length=160, default="")
     address = models.CharField(max_length=260, default="")
-    tiktok = models.CharField(max_length=160,  default="", blank=True, null=True)
-    pinterest = models.CharField(max_length=160,  default="", blank=True, null=True)
-    alibaba = models.CharField(max_length=160,default="", blank=True, null=True)
+    social_links = models.ManyToManyField(SocialIcons, blank=True)
+    menu_list = models.ManyToManyField(NavMenu, blank=True)
+    nav_products_section_heading = models.CharField(max_length=260, default="")
+    nav_products_list =models.ManyToManyField(Category, blank=True)
     author = models.CharField(max_length=160,default="", blank=True, null=True)
+    store_available_time = models.CharField(max_length=160,default="")
     site_name = models.CharField(max_length=160,default="")
     site_url = models.CharField(max_length=160,default="")
     made_by = models.CharField(max_length=160,default="")
@@ -176,7 +195,6 @@ class SiteData(models.Model):
 
 #Home About.
 class HomeAboutSection(models.Model):
-    heading = models.CharField(max_length=260, default="")
     paragrph = models.TextField( default="")
     video_file = models.FileField(upload_to='videos/', blank=True, null=True)
     def __str__(self):

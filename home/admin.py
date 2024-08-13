@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import StaticPosts,NewsPosts,OemCustom, OemCustomBox, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
+from .models import StaticPosts,NewsPosts,SocialIcons, NavMenu, OemCustom, OemCustomBox, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
 # Register static data
 admin.site.register(SiteData)
 # Register static post
@@ -17,6 +17,10 @@ admin.site.register(Product)
 # admin.site.register(Faqs)
 #Category
 admin.site.register(Category)
+#Category
+admin.site.register(SocialIcons)
+#Category
+admin.site.register(NavMenu)
 #HomeGroups
 # admin.site.register(HomeGroups)
 #BannerImages

@@ -59,22 +59,12 @@
             </div>
               <!--track-->
               <div class="nav-social-icons" style="margin-right: auto; margin-left: 50px;">
-                {% if sitedata.tiktok %}
-      <a href="{{sitedata.tiktok}}" aria-label="tiktok" title="tiktok" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg>
-      </a>
-      {% endif %}
-      {% if sitedata.pinterest %}
-      <a href="{{sitedata.pinterest}}" aria-label="pinterest" title="pinterest" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"/></svg>
-      </a>
-      {% endif %}
-      {% if sitedata.alibaba %}
-      <a href="{{sitedata.alibaba}}" aria-label="alibaba" title="alibaba" target="_blank" class="alibaba-icon">
-        <svg  viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="icon"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M602.9 669.8c-37.2 2.6-33.6-17.3-11.5-46.2 50.4-67.2 143.7-158.5 147.9-225.2 5.8-86.6-81.3-113.4-171-113.4-62.4 1.6-127 18.9-171 34.6-151.6 53.5-246.6 137.5-306.9 232-62.4 93.4-43 183.2 91.8 185.8 101.8-4.2 170.5-32.5 239.7-68.2.5 0-192.5 55.1-263.9 14.7-7.9-4.2-15.7-10-17.8-26.2 0-33.1 54.6-67.7 86.6-78.7v-56.7c64.5 22.6 140.6 16.3 205.7-32 2.1 5.8 4.2 13.1 3.7 21h11c2.6-22.6-12.6-44.6-37.8-46.2 7.3 5.8 12.6 10.5 15.2 14.7l-1 1-.5.5c-83.9 58.8-165.3 31.5-173.1 29.9l46.7-45.7-13.1-33.1c92.9-32.5 169.5-56.2 296.9-78.7l-28.5-23 14.7-8.9c75.5 21 126.4 36.7 123.8 76.6-1 6.8-3.7 14.7-7.9 23.1C660.1 466.1 594 538 567.2 569c-17.3 20.5-34.6 39.4-46.7 58.3-13.6 19.4-20.5 37.3-21 53.5 2.6 131.8 391.4-61.9 468-112.9-111.7 47.8-232.9 93.5-364.6 101.9zm85-302.9c2.8 5.2 4.1 11.6 4.1 19.1-.1-6.8-1.4-13.3-4.1-19.1z"></path> </g></svg>
-      </a>
-      {% endif %}
-      <a href="{{sitedata.whatsapp_link}}" target="_blank"  aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+               
+                {% for social in sitedata.social_links.all  %}
+                <a href="{{social.link}}" target="_blank"  aria-label="{{social.name}}" title="{{social.name}}">
+                  {{social.social_icon_code|safe}}
+                </a>
+              {% endfor %}
                 
     
     </div>
@@ -82,7 +72,7 @@
               <!--search-->
               <label for="searchshow" style="color:#ffffff; cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></label>
               <div class="language-dropdown-container">
-                <label for="language-dropdown-check" style="cursor: pointer; color:#ffffff; margin-left:14px; font-weight: 500; font-size: 0.8rem;">EN</label>
+                <label for="language-dropdown-check" style="cursor: pointer; color:#ffffff; margin-left:14px; font-weight: 500; font-size: 0.8rem; user-select:none;">English/Chinese</label>
                 <input type="checkbox" id="language-dropdown-check" value="none">
                 <div class="language-dropdown">
                   <a href="/" aria-label="Go to english version">English</a>
@@ -91,6 +81,7 @@
               </div>
             </div>
           </div>
+          <input type="checkbox" id="show-drop-collections">
 
           <nav class="navigation">
             <!--**logo***********-->
@@ -111,14 +102,13 @@
             <!--**menu***********-->
             <div class="menu-container">
             <ul class="menu">
-              <li><a href="/" aria-label="go to home page">Home</a></li>
+              <li><a href="/" class="{% if request.path == '/' %}active{% endif %}" aria-label="go to home page">Home</a></li>
               <li class="nav-drop-down">
-                <input type="checkbox" id="show-drop-collections">
                 <label for="show-drop-collections" class="show-drop-collections">Product <i class="fa-solid fa-chevron-down"></i></label>
                 <div class="drop-collections">
-                  <strong class="drop-collections-heading">Shop By Collections</strong>  
+                  <strong class="drop-collections-heading">{{sitedata.nav_products_section_heading}}</strong>  
                   <div class="drop-collections-menu">
-                    {% for category in category|slice:"6" %}
+                      {% for category in sitedata.nav_products_list.all  %}
                     <a  href="{% url 'category_detail' category.id %}" class="nav-drop-box">
                       <div class="drop-box-img">
                         <img src="{{category.category_box_image.url}}" alt="{{category.name}}"/>
@@ -131,14 +121,14 @@
                   </div>
                 </div>
               </li>
-              <li><a href="/oemodm/" aria-label="go to OEM/ODM">OEM/ODM</a></li>
-              <li><a href="/about-us" aria-label="go to about page">About Us</a></li>
-              <li><a href="/faqs/" aria-label="go to faqs page">FAQs</a></li>
-              <li><a href="/news/" aria-label="go to news page">News</a></li>
-              <li><a href="{% url 'contact' %}" aria-label="go to contact page">Contact</a></li>
+              {% for menu in sitedata.menu_list.all  %}
+                <li><a class="{% if request.path == menu.link %}active{% endif %}" href="{{menu.link}}" aria-label="go to {{menu.name}}">{{menu.name}}</a></li>
+              {% endfor %}
             </ul>
           </div>
         </nav>
+
+        <div class="product-bg"></div>
       </header>
 
       <input type="checkbox" id="searchshow">
@@ -195,17 +185,12 @@
             <p>{{sitedata.meta_desc}}</p>
             <!--social-box-->
             <div class="footer-social">
-                {% if sitedata.tiktok %}
-                <a href="{{sitedata.tiktok}}" title="tiktok" aria-label="tiktok"><i class="fa-brands fa-tiktok"></i></a>
-                {% endif %}
-                {% if sitedata.alibaba %}
-                <a href="{{sitedata.alibaba}}" title="alibaba" class="alibaba-icon" aria-label="alibaba">
-                  <svg fill="#ffffff" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="icon"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M602.9 669.8c-37.2 2.6-33.6-17.3-11.5-46.2 50.4-67.2 143.7-158.5 147.9-225.2 5.8-86.6-81.3-113.4-171-113.4-62.4 1.6-127 18.9-171 34.6-151.6 53.5-246.6 137.5-306.9 232-62.4 93.4-43 183.2 91.8 185.8 101.8-4.2 170.5-32.5 239.7-68.2.5 0-192.5 55.1-263.9 14.7-7.9-4.2-15.7-10-17.8-26.2 0-33.1 54.6-67.7 86.6-78.7v-56.7c64.5 22.6 140.6 16.3 205.7-32 2.1 5.8 4.2 13.1 3.7 21h11c2.6-22.6-12.6-44.6-37.8-46.2 7.3 5.8 12.6 10.5 15.2 14.7l-1 1-.5.5c-83.9 58.8-165.3 31.5-173.1 29.9l46.7-45.7-13.1-33.1c92.9-32.5 169.5-56.2 296.9-78.7l-28.5-23 14.7-8.9c75.5 21 126.4 36.7 123.8 76.6-1 6.8-3.7 14.7-7.9 23.1C660.1 466.1 594 538 567.2 569c-17.3 20.5-34.6 39.4-46.7 58.3-13.6 19.4-20.5 37.3-21 53.5 2.6 131.8 391.4-61.9 468-112.9-111.7 47.8-232.9 93.5-364.6 101.9zm85-302.9c2.8 5.2 4.1 11.6 4.1 19.1-.1-6.8-1.4-13.3-4.1-19.1z"></path> </g></svg>
+              {% for social in sitedata.social_links.all  %}
+                <a href="{{social.link}}" target="_blank"  aria-label="{{social.name}}" title="{{social.name}}">
+                  {{social.social_icon_code|safe}}
                 </a>
-                {% endif %}
-                {% if sitedata.pinterest %}
-                <a href="{{sitedata.pinterest}}" title="pinterest" aria-label="pinterest"><i class="fa-brands fa-pinterest"></i></a>
-                {% endif %}
+              {% endfor %}
+        
             </div>
         </div>
 
@@ -214,15 +199,14 @@
             <strong>Main Link's</strong>
             <ul>
               <li><a href="/" aria-label="go to home page">Home</a></li>
-              {% for page in pages %}
-              <li><a href="{% url 'index' %}{{page.slug}}" aria-label="go to {{page.page_name}}">{{page.page_name}}</a></li>
-              {% endfor %}
-            </ul>
+              {% for menu in sitedata.menu_list.all  %}
+                <li><a href="{{menu.link}}" aria-label="go to {{menu.name}}">{{menu.name}}</a></li>
+              {% endfor %}           </ul>
         </div>
 
         <!--**link-box**-->
         <div class="footer-link-box">
-            <strong>Recent Product's</strong>
+            <strong>Products Menu</strong>
             <ul>
               {% for product in recentProduct|slice:"4"  %}
                 <li><a href="{% url 'svg_icon_detail' product.slug %}"  aria-label="{{product.title}}">{{product.title}}</a></li>
@@ -253,6 +237,13 @@
 
     <!--**bottom********************-->
     <div class="footer-bottom">
+
+        <div class="footer-bottom-link">
+          <a href="/privacy-policy">Privacy</a>
+          <a href="/terms-and-conditions">Terms</a>
+          <a href="/disclaimer">Disclaimer</a>
+        </div>
+
         <span class="footer-owner">Made By {{sitedata.site_name}}</span>
         <span class="copyright">© {{sitedata.copyright}} - {{sitedata.site_name}}</span>
     </div>
@@ -295,6 +286,27 @@
     function scrollToTop() {
       window.scrollTo(0, 0);
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+  const label = document.querySelector('.nav-drop-down');
+  const productBg = document.querySelector('.product-bg');
+  const checkbox = document.getElementById('show-drop-collections');
+
+  // Show productBg when hovering over the label
+  label.addEventListener('mouseenter', function() {
+    productBg.style.display = 'block';
+  });
+
+  // Hide productBg when the mouse leaves the label or productBg
+  label.addEventListener('mouseleave', hideProductBgIfUnchecked);
+  productBg.addEventListener('mouseleave', hideProductBgIfUnchecked);
+
+  function hideProductBgIfUnchecked() {
+    if (!checkbox.checked) {
+      productBg.style.display = 'none';
+    }
+  }
+});
 
   </script>
 

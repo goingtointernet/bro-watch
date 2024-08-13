@@ -19,6 +19,10 @@
 <!--==Body=========================-->
 {% block article_content %}
 
+<div class="category-banner">
+    <img src="{{sitedata.sidebar_contact_banner.url}}" alt="FAQs">
+    <h1>Contact Us</h1>
+</div>
 
 <section id="contact-page">
     <div class="contact-page-img">
@@ -44,6 +48,54 @@
             <input type="submit" value="Send"/>
         </form>
     </div>
+</section>
+
+<section id="contact-details">
+    <h2>CONTACT DETAILS</h2>
+
+    <div class="contact-details-container">
+        
+        <div class="contact-details-box">
+            <div class="contact-details-box-icon">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <a href="tel:{{sitedata.phone}}" aria-label="phone" class="contact-details-box-text">
+                Phone: {{sitedata.phone}}
+            </a>
+        </div>
+
+        <div class="contact-details-box">
+            <div class="contact-details-box-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <a  href="{{sitedata.whatsapp_link}}" aria-label="whatsapp" target="_blank" class="contact-details-box-text">
+                Whatsapp: {{sitedata.phone}}
+            </a>
+        </div>
+
+        <div class="contact-details-box">
+            <div class="contact-details-box-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <a href="mailto:{{sitedata.email}}" aria-label="email" class="contact-details-box-text">
+                Email: {{sitedata.email}}
+            </a>
+        </div>
+
+        <div class="contact-details-box">
+            <div class="contact-details-box-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <strong class="contact-details-box-text">
+                Address: {{sitedata.address}}
+            </strong>
+        </div>
+
+        <span class="contact-available-text">AVAILABLE AT {{sitedata.store_available_time}}</span>
+
+    
+    </div>
+
 </section>
 
 
