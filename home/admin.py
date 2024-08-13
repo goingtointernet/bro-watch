@@ -12,7 +12,7 @@ admin.site.register(HomeAboutSection)
 # Ads
 admin.site.register(Ads)
 #SVG
-admin.site.register(Product)
+# admin.site.register(Product)
 #Faqs
 # admin.site.register(Faqs)
 #Category
@@ -26,9 +26,9 @@ admin.site.register(NavMenu)
 #BannerImages
 admin.site.register(HomeBannerImages)
 #ProductImages
-admin.site.register(ProductImages)
+# admin.site.register(ProductImages)
 #ProductShowImages
-admin.site.register(ProductShowImages)
+# admin.site.register(ProductShowImages)
 #WhatGain
 admin.site.register(WhatGain)
 #Certificate
@@ -76,3 +76,21 @@ class OemCustomAdmin(admin.ModelAdmin):
     inlines = [OemCustomBoxInline]
 
 admin.site.register(OemCustom, OemCustomAdmin)
+
+
+
+class ProductImagesInline(admin.TabularInline):
+    model = ProductImages
+    extra = 1  # Number of empty forms to display
+
+class ProductShowImagesInline(admin.TabularInline):
+    model = ProductShowImages
+    extra = 1
+
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [ProductImagesInline, ProductShowImagesInline]
+    list_display = ['title', 'category', 'brand', 'price']  # Customize as needed
+    search_fields = ['title', 'brand', 'model']  # Fields to include in the search bar
+
+# Register the Product model with the custom admin
+admin.site.register(Product, ProductAdmin)

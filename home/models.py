@@ -5,13 +5,6 @@ from django.urls import reverse
 class HomeBannerImages(models.Model):
     image = models.ImageField( upload_to = 'Banner', null = True, blank = True)
     
-# ProductImages
-class ProductImages(models.Model):
-    image = models.ImageField( upload_to = 'Product', null = True, blank = True)
-
-# ProductShowImages
-class ProductShowImages(models.Model):
-    image = models.ImageField( upload_to = 'Product', null = True, blank = True)
 
 # Category
 class Category(models.Model):
@@ -98,7 +91,6 @@ class Product(models.Model):
     meta_desc = models.CharField(max_length=160)
     meta_key = models.CharField(max_length=260)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
-    product_images = models.ManyToManyField(ProductImages, blank=False)
     brand = models.CharField(max_length=160, default="")
     model = models.CharField(max_length=160, default="")
     weight = models.CharField(max_length=160, default="")
@@ -106,13 +98,25 @@ class Product(models.Model):
     feature = models.CharField(max_length=160, default="")
     details = models.TextField()
     price = models.CharField(max_length=160, default="")
-    product_show_images = models.ManyToManyField(ProductShowImages, blank=False)
     # faqs_content = models.ManyToManyField(Faqs, blank=True)
     slug = models.CharField(max_length=70, unique=True)
     def __str__(self):
         return self.title
     def get_absolute_url(self):
         return reverse("svg_icon_detail",args=[self.slug])
+
+
+# ProductImages
+class ProductImages(models.Model):
+    image = models.ImageField( upload_to = 'Product', null = True, blank = True)
+    heading = models.ForeignKey(Product, related_name='product_images', on_delete=models.CASCADE, default=1)
+
+
+# ProductShowImages
+class ProductShowImages(models.Model):
+    image = models.ImageField( upload_to = 'Product', null = True, blank = True)
+    heading = models.ForeignKey(Product, related_name='product_show_images', on_delete=models.CASCADE, default=1)
+
 
 # Static-Pages.
 class StaticPosts(models.Model):
@@ -197,8 +201,6 @@ class SiteData(models.Model):
 class HomeAboutSection(models.Model):
     paragrph = models.TextField( default="")
     video_file = models.FileField(upload_to='videos/', blank=True, null=True)
-    def __str__(self):
-        return self.heading
     
 
 class WhatWeDoBox(models.Model):

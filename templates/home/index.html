@@ -47,11 +47,11 @@
 
 
 <section id="about-us">
-    <div class="about-us-heading">
+    <div class="about-us-heading" data-aos="fade-up">
         <h3>Who is {{sitedata.site_name}}</h3>
         <strong>Our Advantage</strong>
     </div>
-    <div class="about-us-container">
+    <div class="about-us-container" data-aos="fade-up">
     <!--***text********************-->
     <div class="about-us-text">
         <p>{{homeabout.paragrph}}</p>
@@ -67,7 +67,7 @@
 
 <section id="whatwedo">
     <img src="{{whatwedo.banner_image.url}}" alt="{{whatwedo.title}}">
-    <div class="whatwedo-text">
+    <div class="whatwedo-text" data-aos="fade-up">
         <h3>{{whatwedo.title}}</h3>
         <p>{{whatwedo.paragraph}}</p>
         <a href="{% url 'contact' %}" aria-label="contact us">Inquiry</a>
@@ -78,7 +78,7 @@
 <div class="whatwedo-box-wrapper">
     {% for whatwedobox in whatwedobox  %}
     <!--==box=================-->
-    <div class="whatwedo-box">
+    <div class="whatwedo-box" data-aos="fade">
         <div class="whatwedo-box-icon">
             <img src="{{whatwedobox.img.url}}" alt="{{whatwedobox.heading}}">
         </div>
@@ -94,7 +94,7 @@
     <!--**blog-section************-->
     <section id="blog">
         <!--blog-heading-->
-        <div class="blog-heading">
+        <div class="blog-heading" data-aos="fade-up">
             <h3>What will you gain?</h3>
             <span>Same price, superior quality; Equal quality, better deal</span>
         </div>
@@ -104,7 +104,7 @@
         <div class="blog-container">
         {% for whatgain in whatgain %}
           <!--box-->
-          <div class="blog-box">
+          <div class="blog-box" data-aos="fade">
   
             <!--img-->
             <div class="blog-img">
@@ -130,13 +130,13 @@
 <section class="recent-product">
 
     <!--**heading********************-->
-    <div class="product-heading product-center-heading">
+    <div class="product-heading product-center-heading" data-aos="fade-up">
         <h3>HOT SALE PRODUCTS</h3>
         <p>Here are the main product categories we manufacture, and hot-selling watch recommendations</p>
     </div>
 
     <!--**container******************-->
-    <div class="r-product-container">
+    <div class="r-product-container" data-aos="fade-right">
         {% for category in category|slice:"10" %}
         <!--*box*-->
         <div class="r-product-box r-category-box">
@@ -165,13 +165,13 @@
 <section id="popular-product">
 
     <!--**heading********************-->
-    <div class="product-heading">
+    <div class="product-heading" data-aos="fade">
         <h3>Recent Product's</h3>
         <a href="{% url 'all_category' %}" aria-label="go to all recent products">All</a>
     </div>
 
     <!--**container*****************-->
-    <div class="popular-product-container">
+    <div class="popular-product-container" data-aos="fade-left">
         {% for recent in recent|slice:"10" %}
         <!--**box1***-->
         <div class="product-box">
@@ -202,11 +202,11 @@
 
       <section id="certificate">
              <!--blog-heading-->
-             <div class="blog-heading">
+             <div class="blog-heading" data-aos="fade-up">
                 <h3>Certificate Display</h3>
                 <span>Please feel free to contact our wholesale team for the relevant certificates you need.</span>
             </div>
-        <div class="swiper mySwiperCertificate">
+        <div class="swiper mySwiperCertificate" data-aos="fade-right">
             <div class="swiper-wrapper">
             {% for certificate in certificate %}
               <div class="swiper-slide">
@@ -221,8 +221,8 @@
 {% if home_partner %}
 <section id="home-contact">
     <img class="home-contact-bg" src="{{home_partner.BackgroundImg.url}}" alt="contact">
-    <h3>Partners</h3>
-    <div class="home-contact-container">
+    <h3 data-aos="fade-up">Partners</h3>
+    <div class="home-contact-container" data-aos="fade-left">
         <div class="home-contact-slider">
             <!-- Swiper -->
             <div class="swiper mySwiperPartners">
@@ -250,14 +250,14 @@
 <!--**blog-section************-->
 <section id="blog">
     <!--blog-heading-->
-    <div class="blog-heading">
+    <div class="blog-heading" data-aos="fade-up">
         <h3>NEWS</h3>
         <span>Discover more trends, innovations and knowledges in the watch industry.</span>
     </div>
 
 
     <!--container-->
-    <div class="blog-container">
+    <div class="blog-container" data-aos="fade-right">
     {% for news in news|slice:"3"  %}
       <!--box-->
       <div class="blog-box">

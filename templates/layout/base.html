@@ -23,7 +23,9 @@
     rel="stylesheet" />
    <!--==Using-Font-Awesome-for-Icons=====-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
+  <!--==aos=============================-->
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
+  <script src="{% static 'js/aos.js' %}"></script>
   {{sitedata.head_script|safe}}
 
   <!--==cutome-css========================-->
@@ -176,7 +178,7 @@
     <div class="footer-container">
 
         <!--**company**-->
-        <div class="footer-company-box">
+        <div class="footer-company-box" data-aos="fade-right">
             <!--logo-->
             <a href="#" aria-label="{{sitedata.site_name}}" class="footer-logo">
               <img src="{{sitedata.white_text_logo.url}}" alt="{{sitedata.site_name}}">
@@ -195,7 +197,7 @@
         </div>
 
         <!--**link-box**-->
-        <div class="footer-link-box">
+        <div class="footer-link-box" data-aos="fade-right">
             <strong>Main Link's</strong>
             <ul>
               <li><a href="/" aria-label="go to home page">Home</a></li>
@@ -205,7 +207,7 @@
         </div>
 
         <!--**link-box**-->
-        <div class="footer-link-box">
+        <div class="footer-link-box" data-aos="fade-right">
             <strong>Products Menu</strong>
             <ul>
               {% for product in recentProduct|slice:"4"  %}
@@ -215,7 +217,7 @@
         </div>
 
         <!--**subscribe**-->
-        <div class="footer-subscribe">
+        <div class="footer-subscribe" data-aos="fade-right">
             <strong>Contact</strong>
             <div class="footer-subscribe">
               <div class="footer-contact-box">
@@ -307,6 +309,8 @@
     }
   }
 });
+
+AOS.init();
 
   </script>
 
