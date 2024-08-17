@@ -17,17 +17,22 @@
 {% endblock meta_tags %}
 
 <!--==Body=========================-->
-{% block article_content %}
 
-<div class="category-banner">
-    <img src="{{sitedata.sidebar_contact_banner.url}}" alt="FAQs">
+{% block home_main %}
+<div class="category-banner" style="max-width:100%; border-radius:0px; margin-top:50px">
+    <img src="{% static 'images/oem-odm.webp' %}" alt="FAQs">
     <h1>Contact Us</h1>
 </div>
+{% endblock home_main %}
 
-<section id="contact-page">
-    <div class="contact-page-img">
-        <img src="{% static 'images/contact/contact_page.svg' %}" alt="contact">
-    </div>
+
+{% block article_content %}
+
+
+<section id="contact-page" style="background-image: url('{{sitedata.contact_page_bg.url}}');">
+    
+    <h2>{{sitedata.site_name}}</h2>
+    <h3>Looking forward to your inquiry!</h3>
     <div class="contact-page">
         <h1>Leave Your Message</h1>
 
@@ -48,12 +53,14 @@
             <input type="submit" value="Send"/>
         </form>
     </div>
-</section>
 
-<section id="contact-details">
+
+    
+    <div id="contact-details">
     <h2>CONTACT DETAILS</h2>
 
-    <div class="contact-details-container">
+    <div class="contact-details-grid">
+        <div class="contact-details-container">
         
         <div class="contact-details-box">
             <div class="contact-details-box-icon">
@@ -91,12 +98,22 @@
             </strong>
         </div>
 
-        <span class="contact-available-text">AVAILABLE AT {{sitedata.store_available_time}}</span>
 
     
+        </div>
+
+        <div class="contact-qr-code">
+            <img src="{{sitedata.whatsapp_qr_img.url}}">
+        </div>
+    </div>
+
+    <span class="contact-available-text">AVAILABLE AT {{sitedata.store_available_time}}</span>
+
+
     </div>
 
 </section>
+
 
 
 

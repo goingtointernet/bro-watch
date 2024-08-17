@@ -106,8 +106,8 @@
             <ul class="menu">
               <li><a href="/" class="{% if request.path == '/' %}active{% endif %}" aria-label="go to home page">Home</a></li>
               <li class="nav-drop-down">
-                <label for="show-drop-collections" class="show-drop-collections">Product <i class="fa-solid fa-chevron-down"></i></label>
-                <div class="drop-collections">
+                <div class="show-drop-collections"><a href="{% url 'allproducts' %}">Product</a> <label for="show-drop-collections"><i class="fa-solid fa-chevron-down"></i></label></div>
+                <div class="drop-collections" id="drop-collections">
                   <strong class="drop-collections-heading">{{sitedata.nav_products_section_heading}}</strong>  
                   <div class="drop-collections-menu">
                       {% for category in sitedata.nav_products_list.all  %}
@@ -210,8 +210,10 @@
         <div class="footer-link-box" data-aos="fade-right">
             <strong>Products Menu</strong>
             <ul>
-              {% for product in recentProduct|slice:"4"  %}
-                <li><a href="{% url 'svg_icon_detail' product.slug %}"  aria-label="{{product.title}}">{{product.title}}</a></li>
+              {% for category in sitedata.nav_products_list.all  %}
+                    <li><a  href="{% url 'category_detail' category.id %}">
+                     {{category.name}}  
+                    </a></li>
               {% endfor %}
             </ul>
         </div>
@@ -268,6 +270,7 @@
     body = document.getElementById("main-body");
     myID = document.getElementById("scroll-btn");
     header = document.getElementById("header");
+    const checkbox = document.getElementById('language-dropdown-check');
     var myScrollFunc = function () {
       var y = window.scrollY;
       if (y >= 200) {
@@ -278,6 +281,7 @@
       if (y >= 200) {
         header.className = "fixed"
         body.className = "fixedbody"
+        checkbox.checked = false;
       } else {
         header.className = ""
         body.className = ""
@@ -293,10 +297,28 @@
   const label = document.querySelector('.nav-drop-down');
   const productBg = document.querySelector('.product-bg');
   const checkbox = document.getElementById('show-drop-collections');
+  const navproduct = document.getElementById('drop-collections');
+
+  
 
   // Show productBg when hovering over the label
   label.addEventListener('mouseenter', function() {
     productBg.style.display = 'block';
+    if (window.innerWidth > 1000) {
+    navproduct.style.display = 'block';
+    }
+  });
+
+  
+  navproduct.addEventListener('mouseenter', function() {
+    if (window.innerWidth > 1000) {
+    navproduct.style.display = 'block';
+    }
+  });
+  navproduct.addEventListener('mouseleave', function() {
+    if (!checkbox.checked & window.innerWidth > 1000) {
+      navproduct.style.display = 'none';
+    }
   });
 
   // Hide productBg when the mouse leaves the label or productBg
@@ -311,6 +333,7 @@
 });
 
 AOS.init();
+
 
   </script>
 

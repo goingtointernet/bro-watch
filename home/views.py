@@ -122,6 +122,26 @@ def news(request):
     params={'news':  product_data, 'pagination':pagination, 'page_range':page_range}
     return render(request, 'home/all-news.html', params)
 
+
+
+def allproducts(request):
+    p =  Paginator(Product.objects.all().order_by('-pk'), 12)
+    page = request.GET.get('page')
+    pagination = p.get_page(page)
+    product_data=pagination
+    current_numer = pagination.number
+    total_number = pagination.paginator.num_pages
+    if current_numer == total_number and current_numer != 0:
+        current_numer = current_numer - 1
+    if total_number == 1:
+        page_range = 1
+    else:
+        page_range =(current_numer, total_number)
+
+
+    params={'products':  product_data, 'pagination':pagination, 'page_range':page_range}
+    return render(request, 'home/products.html', params)
+
 #Static-post
 def staticpost(request,slug):
     staticpost = get_object_or_404(StaticPosts, slug=slug)

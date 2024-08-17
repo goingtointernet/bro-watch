@@ -270,6 +270,8 @@
         <div class="blog-text">
           <a href="{% url 'newspost' news.slug %}" aria-label="{{news.title}}" class="blog-title">{{news.title}}</a>
           <p>{{news.meta_desc}}</p>
+          <span>{{ news.created_at|date:"d M Y" }}</span>
+
         </div>
 
       </div>
