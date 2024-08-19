@@ -1,0 +1,70 @@
+{% extends 'layout/base.html' %} <!--get all content from base.html-->
+
+{% load static %}
+
+<!--==Title========================-->
+{% block title %}{{about.title}}{% endblock title %}
+
+
+{% block meta_tags %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="{{about.meta_desc}}">
+<meta name="keywords" content="{{about.meta_key}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{% url 'aboutus' %}">
+<meta property="og:title" content="{{about.title}}">
+<meta property="og:description" content="{{about.meta_desc}}">
+{% endblock meta_tags %}
+
+<!--==Body=========================-->
+
+{% block home_main %}
+<div class="about-page">
+
+    
+    <div class="about-page-about" data-aos="fade-up">
+        <h2>{{about.about_page_heading}}</h2>
+        <p>{{about.about_page_paragraph|safe}}</p>
+    </div>
+    <!--==Banner===============-->
+    <div class="category-banner"  data-aos="zoom-in" style="max-width:100%; border-radius:0px; margin-top:50px">
+        <img src="{{about.start_banner_image.url}}" alt="{{about.about_page_heading}}">
+    </div>
+
+    <div class="about-page-customers">
+        <h3 data-aos="fade-down">{{about.customer_heading}}</h3>
+
+        <div class="about-page-customers-box-container">
+
+            {% for aboutbox in about.customer_box.all %}
+            <div class="about-page-customer-box">
+                <div class="about-page-customer-box-img" data-aos="fade-left">
+                    <img src="{{aboutbox.image.url}}" alt="{{aboutbox.heading}}">
+                </div>
+                <div class="about-page-customer-box-text" data-aos="flip-right">
+                    <h4>{{aboutbox.heading}}</h4>
+                    <p>{{aboutbox.text |safe}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        
+        </div>
+
+    </div>
+
+    <div class="about-page-oem"  data-aos="zoom-in">
+        <h4>{{about.oem_odm_heading}}</h4>
+        <a href="{% url 'oemodm' %}">{{sitedata.site_name}} OEM&ODM</a>
+    </div>
+
+    <div class="about-page-story"  data-aos="zoom-in">
+        <h4>{{about.our_story_heading}}</h4>
+        {{about.our_story_content |safe}}
+    </div>
+
+    <div class="about-page-banner-large"  data-aos="zoom-in">
+        <img src="{{about.end_banner_image.url}}" alt="about us">
+    </div>
+
+</div>
+{% endblock home_main %}

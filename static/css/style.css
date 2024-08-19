@@ -1951,13 +1951,14 @@ nav:after{
     margin-left: 0px;
 }
 .nav-social-icons a svg{
-    height: 15px;
+    height: 16px;
     fill: #ffffff;
     transition: all ease 0.3s;
 }
 .nav-social-icons a i{
     color: #ffffff;
     transition: all ease 0.3s;
+    font-size: 1.1rem;
 }
 .nav-social-icons a:hover svg,
 .nav-social-icons a:hover i{
@@ -1968,7 +1969,7 @@ nav:after{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 .header-top-contact-box i{
     color: #ffffff;
@@ -3493,6 +3494,10 @@ footer{
     align-items: center;
     padding: 50px 10px;
     position: relative;
+    max-width: 1600px;
+    margin:auto;
+    border-radius: 10px;
+    overflow: hidden;
 }
 #whatwedo::after{
     content: '';
@@ -3814,6 +3819,9 @@ footer{
     .about-us-text p{
         font-size: 1.1rem;
         line-height: 2rem;
+    }
+    .about-us-heading{
+        margin-bottom: 10px;
     }
 }
 .go-home-btn{
@@ -4449,3 +4457,177 @@ a .alibaba{
     position: absolute;
     right: 0;
   }
+
+  .about-page{
+    background-color: #ffffff;
+  }
+
+  .about-page-about{
+    max-width: 620px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0px 30px 0px;
+    margin: auto;
+  }
+  .about-page-about h2{
+    font-size:2rem ;
+    font-weight: 800;
+    color: #303030;
+    margin-bottom: 20px;
+  }
+  .about-page-about p{
+    color: #5f5f5f;
+    font-weight: 400;
+  }
+.about-page-customers{
+    max-width: 1600px;
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.about-page-customers h3,
+.about-page-story h4{
+    color: #1f1f1f;
+    font-size: 2rem;
+    font-weight: 800;
+    border-bottom: 5px solid var(--second-main-color);
+    padding-bottom: 10px;
+    margin-top: 40px;
+    text-align: center;
+}
+.about-page-customers-box-container{
+    margin: 80px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    grid-gap: 100px;
+}
+.about-page-customer-box{
+    display: flex;
+    grid-gap: 50px;
+    align-items: center;
+}
+.about-page-customers-box-container .about-page-customer-box:nth-child(even){
+    flex-direction: row-reverse;
+}
+.about-page-customer-box-img{
+    width: 50%;
+    height: 400px;
+}
+.about-page-customer-box-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.about-page-customer-box-text{
+    width: 50%;
+}
+.about-page-customer-box-text h4{
+    color: #414141;
+    font-size: 1.4rem;
+}
+.about-page-customer-box-text p{
+    color: #575757;
+    margin-top: 10px;
+}
+.about-page-oem{
+    max-width: 620px;
+    width: 90%;
+    margin: 90px auto 50px auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.about-page-oem h4{
+    color: #0f1012;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.about-page-oem a{
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: var(--second-main-color);
+    margin-top: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
+}
+.about-page-story{
+    width: 90%;
+    max-width: 1000px;
+    margin: 100px auto 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.about-page-story h4{
+    margin-bottom: 20px;
+}
+.about-page-story p{
+    color: #525252;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    margin: 10px 0px;
+}
+.about-page-story p b{
+    color: var(--second-main-color);
+    font-weight: 400;
+}
+
+.about-page-banner-large{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.about-page-banner-large img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+@media(max-width:900px){
+    
+.about-page-customer-box{
+    flex-direction: column !important;
+}
+.about-page-customer-box-img{
+    width: 100%;
+}
+.about-page-customer-box-text{
+    width: 100%;
+}
+}
+@media(max-width:724px){
+    .about-page-about h2,
+    .about-page-customers h3,
+    .about-page-story h4{
+        font-size:1.6rem ;
+    width: 80%;}
+    .about-page-about{
+        padding-top: 30px;
+    }
+    .about-page-customer-box-img{
+        height: 280px;
+    }
+    .about-page-oem h4{
+        font-size: 1.4rem;
+    }
+}

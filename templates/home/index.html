@@ -64,7 +64,7 @@
     </div>
 </div>
 </section>
-
+<div style="background-color:#ffffff; padding-top:50px">
 <section id="whatwedo">
     <img src="{{whatwedo.banner_image.url}}" alt="{{whatwedo.title}}">
     <div class="whatwedo-text" data-aos="fade-up">
@@ -90,6 +90,7 @@
     {% endfor %}
 </div>
 </section>
+</div>
 
     <!--**blog-section************-->
     <section id="blog">
@@ -131,13 +132,13 @@
 
     <!--**heading********************-->
     <div class="product-heading product-center-heading" data-aos="fade-up">
-        <h3>HOT SALE PRODUCTS</h3>
-        <p>Here are the main product categories we manufacture, and hot-selling watch recommendations</p>
+        <h3>{{sitedata.category_section_heading}}</h3>
+        <p>{{sitedata.category_section_paragraph}}</p>
     </div>
 
     <!--**container******************-->
     <div class="r-product-container" data-aos="fade-right">
-        {% for category in category|slice:"10" %}
+        {% for category in sitedata.nav_products_list.all|slice:"10" %}
         <!--*box*-->
         <div class="r-product-box r-category-box">
             <!--img-->

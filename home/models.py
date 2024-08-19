@@ -182,6 +182,8 @@ class SiteData(models.Model):
     social_links = models.ManyToManyField(SocialIcons, blank=True)
     menu_list = models.ManyToManyField(NavMenu, blank=True)
     nav_products_section_heading = models.CharField(max_length=260, default="")
+    category_section_heading = models.CharField(max_length=260, default="")
+    category_section_paragraph = models.CharField(max_length=260, default="")
     nav_products_list =models.ManyToManyField(Category, blank=True)
     all_product_page_banner = models.ImageField( upload_to = 'Product', null = True, blank = True)
     author = models.CharField(max_length=160,default="", blank=True, null=True)
@@ -243,3 +245,29 @@ class HomePartnerImage(models.Model):
     
     def __str__(self):
         return f"Image for {self.home_partner.heading}"
+    
+
+class AboutPage(models.Model):
+    title = models.CharField(max_length=160, default="")
+    meta_desc = models.CharField(max_length=160,default="")
+    meta_key = models.CharField(max_length=260, default="")
+    about_page_heading = models.CharField(max_length=160, default="")
+    about_page_paragraph = models.TextField( default="")
+    start_banner_image = models.ImageField(upload_to='about_page')
+    customer_heading = models.CharField(max_length=160, default="")
+    oem_odm_heading = models.CharField(max_length=160, default="")
+    our_story_heading = models.CharField(max_length=160, default="")
+    our_story_content =  models.TextField( default="")
+    end_banner_image = models.ImageField(upload_to='about_page')
+    
+    def __str__(self):
+        return self.title
+    
+
+# ProductShowImages
+class CustomerBox(models.Model):
+    image = models.ImageField( upload_to = 'about_page', null = True, blank = True)
+    heading = models.CharField(max_length=160, default="")
+    text =  models.TextField( default="")
+    customer_box = models.ForeignKey(AboutPage, related_name='customer_box', on_delete=models.CASCADE, default=1)
+

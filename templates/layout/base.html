@@ -62,7 +62,7 @@
               <!--track-->
               <div class="nav-social-icons" style="margin-right: auto; margin-left: 50px;">
                
-                {% for social in sitedata.social_links.all  %}
+                {% for social in sitedata.social_links.all|slice:"5"   %}
                 <a href="{{social.link}}" target="_blank"  aria-label="{{social.name}}" title="{{social.name}}">
                   {{social.social_icon_code|safe}}
                 </a>
@@ -123,7 +123,7 @@
                   </div>
                 </div>
               </li>
-              {% for menu in sitedata.menu_list.all  %}
+              {% for menu in sitedata.menu_list.all %}
                 <li><a class="{% if request.path == menu.link %}active{% endif %}" href="{{menu.link}}" aria-label="go to {{menu.name}}">{{menu.name}}</a></li>
               {% endfor %}
             </ul>

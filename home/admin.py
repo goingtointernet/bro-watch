@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_summernote.widgets import SummernoteWidget 
 from django.db import models 
-from .models import StaticPosts,NewsPosts,SocialIcons, NavMenu, OemCustom, OemCustomBox, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
+from .models import StaticPosts,NewsPosts,SocialIcons, NavMenu,AboutPage, CustomerBox, OemCustom, OemCustomBox, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
 # Register static data
 admin.site.register(SiteData)
 # Register static post
@@ -115,3 +115,20 @@ class ProductAdmin(admin.ModelAdmin):
 
 # Register the Product model with the custom admin
 admin.site.register(Product, ProductAdmin)
+
+
+
+class AboutPageInline(admin.TabularInline):
+    model = CustomerBox
+    extra = 1
+    formfield_overrides = { 
+            models.TextField: {'widget': SummernoteWidget}, 
+     } 
+
+class CustomerBoxAdmin(admin.ModelAdmin):
+    inlines = [AboutPageInline]
+    formfield_overrides = { 
+            models.TextField: {'widget': SummernoteWidget}, 
+     } 
+
+admin.site.register(AboutPage, CustomerBoxAdmin)

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from .models import HomeBannerImages,OemCustom, NewsPosts,AddFaq,OemOdm, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
+from .models import HomeBannerImages,OemCustom,AboutPage, NewsPosts,AddFaq,OemOdm, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -35,6 +35,11 @@ def index(request):
 def faqs(request):
     faqs = AddFaq.objects.all().order_by('-pk')
     return render(request, 'home/faqs.html', {'faqs':faqs})
+
+
+def aboutus(request):
+    about = AboutPage.objects.all().first()
+    return render(request, 'home/about-us.html', {'about':about})
 
 
 def oemodm(request):
