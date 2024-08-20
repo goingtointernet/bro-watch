@@ -3260,13 +3260,16 @@ footer{
     color: #ebebeb;
     font-size: 0.9rem;
 }
-@media(max-width:724px){
+@media(max-width:840px){
     .header-top-contact{
         display: none;
     }
     .nav-social-icons{
         margin-left: 0px !important;
     }
+}
+@media(max-width:724px){
+    
     .product-heading.product-center-heading h3{
         font-size: 1.6rem;
     }
