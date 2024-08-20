@@ -4460,6 +4460,8 @@ a .alibaba{
 
   .about-page{
     background-color: #ffffff;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .about-page-about{
@@ -4470,7 +4472,7 @@ a .alibaba{
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 80px 0px 30px 0px;
+    padding: 80px 0px 0px 0px;
     margin: auto;
   }
   .about-page-about h2{
@@ -4481,8 +4483,14 @@ a .alibaba{
   }
   .about-page-about p{
     color: #5f5f5f;
-    font-weight: 400;
+    font-weight: 300;
   }
+  .about-page-about p b{
+    font-weight: 600;
+  }
+  .about-category-banner::after{
+    display: none !important;
+}
 .about-page-customers{
     max-width: 1600px;
     width: 90%;
@@ -4616,18 +4624,64 @@ a .alibaba{
 }
 }
 @media(max-width:724px){
-    .about-page-about h2,
+    .about-page-about h2{
+        font-size:1.9rem ;
+        width: 80%;
+        letter-spacing: 0px;
+        line-height: 2.3rem;
+    }
+    .about-category-banner{
+        margin-top: 20px !important;
+    }
+
+    .about-category-banner{
+        height: 100%;
+        width: 100%;
+    }
+    .about-category-banner img{
+        height: 100%;
+        position: static;
+    }
     .about-page-customers h3,
     .about-page-story h4{
-        font-size:1.6rem ;
-    width: 80%;}
+        font-size: 1.4rem;
+        border-bottom: none;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    .about-page-customers h3::after,
+    .about-page-story h4::after{
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        background-color: var(--second-main-color);
+        width: 90%;
+        height: 6px;
+    }
     .about-page-about{
-        padding-top: 30px;
+        padding-top: 80px;
     }
     .about-page-customer-box-img{
-        height: 280px;
+        height: 250px;
+    }
+    .about-page-customer-box-text{
+        text-align: center;
+    }
+    .about-page-customer-box-text h4{
+        font-size: 1.2rem;
+    }
+    .about-page-customer-box{
+        grid-gap: 15px;
     }
     .about-page-oem h4{
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+    }
+    .about-page-oem a{
+        font-size: 1rem;
+    }
+    .about-page-story h4{
+        font-size: 1.8rem;
     }
 }
