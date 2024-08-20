@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django_summernote.widgets import SummernoteWidget 
 from django.db import models 
+from .forms import ProductAdminForm
 from .models import StaticPosts,NewsPosts,SocialIcons, NavMenu,AboutPage, CustomerBox, OemCustom, OemCustomBox, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
 # Register static data
 admin.site.register(SiteData)
@@ -102,18 +103,34 @@ admin.site.register(OemCustom, OemCustomAdmin)
 
 class ProductImagesInline(admin.TabularInline):
     model = ProductImages
-    extra = 1  # Number of empty forms to display
+    extra = 1
 
 class ProductShowImagesInline(admin.TabularInline):
     model = ProductShowImages
     extra = 1
 
+
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImagesInline, ProductShowImagesInline]
-    list_display = ['title', 'category', 'brand', 'price']  # Customize as needed
-    search_fields = ['title', 'brand', 'model']  # Fields to include in the search bar
+    form = ProductAdminForm
+    list_display = ['title', 'category', 'brand', 'price']
+    search_fields = ['title', 'brand', 'model']
 
-# Register the Product model with the custom admin
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+
+        # Handle ProductImages
+        images = form.cleaned_data.get('images')
+        if images:
+            for image in images:
+                ProductImages.objects.create(heading=obj, image=image)
+
+        # Handle ProductShowImages
+        show_images = form.cleaned_data.get('show_images')
+        if show_images:
+            for image in show_images:
+                ProductShowImages.objects.create(heading=obj, image=image)
+
 admin.site.register(Product, ProductAdmin)
 
 
