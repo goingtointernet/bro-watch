@@ -44,6 +44,19 @@
 <body id="main-body">
   <div class="{% block main_banner_class %}{% endblock main_banner_class %}">
   
+      <input type="checkbox" id="searchshow">
+      <label for="searchshow" class="search-container">
+        <!--search-box-->
+      <form action="{% url 'search' %}" class="header-container">
+        <label for="searchshow" class="close-btn-search"><i class="fa-solid fa-xmark"></i></label>
+          <div class="header-search">
+          <!--input-->
+          <input type="text" name="search" value="{{search}}" id="search" placeholder="Start Typing..." required/>
+          <!--button-->
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+      </form>
+    </label for="searchshow">
         <!--==Header==============================-->
         <header id="header">
           <!--**Top****************-->
@@ -73,7 +86,7 @@
 
               <!--search-->
               <label for="searchshow" style="color:#ffffff; cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></label>
-              <div class="language-dropdown-container">
+              <div class="language-dropdown-container language-dropdown-container2">
                 <label for="language-dropdown-check" style="cursor: pointer; color:#ffffff; margin-left:14px; font-weight: 500; font-size: 0.8rem; user-select:none;">English/Chinese</label>
                 <input type="checkbox" id="language-dropdown-check" value="none">
                 <div class="language-dropdown">
@@ -86,6 +99,13 @@
           <input type="checkbox" id="show-drop-collections">
 
           <nav class="navigation">
+
+            <!--**menu-btn*******-->
+            <input type="checkbox" class="menu-btn" id="menu-btn">
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            
             <!--**logo***********-->
             <a href="{% url 'index' %}" aria-label="{{sitedata.site_name}}" class="logo" title="{{sitedata.site_name}}">
               {% if sitedata.logo %}
@@ -95,11 +115,16 @@
               {% endif %}
             </a>
 
-            <!--**menu-btn*******-->
-            <input type="checkbox" class="menu-btn" id="menu-btn">
-            <label for="menu-btn" class="menu-icon">
-                <span class="nav-icon"></span>
-            </label>
+            <div class="language-dropdown-container language-dropdown-container-mobile">
+              <label for="language-dropdown-check2" style="cursor: pointer; color:#222222; margin-left:14px; font-weight: 600; font-size: 0.8rem; user-select:none;">EN/CN <i class="fa-solid fa-caret-down"></i></label>
+              <input type="checkbox" id="language-dropdown-check2" value="none">
+              <div class="language-dropdown">
+                <a href="/" aria-label="Go to english version">English</a>
+                <a href="https://www.bro-watch.cn">Chinese</a>
+              </div>
+            </div>
+
+            
             
             <!--**menu***********-->
             <div class="menu-container">
@@ -133,20 +158,6 @@
         <div class="product-bg"></div>
       </header>
 
-      <input type="checkbox" id="searchshow">
-
-      <label for="searchshow" class="search-container">
-      <!--search-box-->
-      <form action="{% url 'search' %}" class="header-search">
-        <label for="searchshow" class="close-btn-search"><i class="fa-solid fa-xmark"></i></label>
-        <!--icon-->
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <!--input-->
-        <input type="text" name="search" value="{{search}}" id="search" placeholder="Search Something Here" required/>
-        <!--button-->
-        <button>Search</button>
-      </form>
-      </label>
 
   {% block home_main %}{% endblock home_main %}
 </div>
