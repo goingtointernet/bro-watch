@@ -14,6 +14,11 @@
 <meta property="og:title" content="{{product.title}}">
 <meta property="og:description" content="{{product.meta_desc}}">
 <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
+<script src="{% static 'js/jquery-3.7.1.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-1.4.1.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/cloud-zoom.css' %}">
+<script src="{% static 'js/cloud-zoom.1.0.2.min.js' %}"></script>
+
 
 {% endblock meta_tags %}
 
@@ -73,8 +78,11 @@
             <div style="width:100%" class="swiper mySwiper2">
                 <div class="swiper-wrapper">
                     {% for images in product.product_images.all %}
-                    <div class="swiper-slide product-img">
+                    <!-- <div class="swiper-slide product-img">
                         <img src="{{images.image.url}}" alt="{{product.title}}"/>
+                    </div> -->
+                    <div class="swiper-slide">
+                        <a href='{{images.image.url}}' class='cloud-zoom' rel="position:'inside',showTitle:false,adjustX:-4,adjustY:-4"><img src="{{images.image.url}}" title="{{product.title}}" alt='{{product.title}}'/></a>
                     </div>
                     {% endfor %}
                 </div>
@@ -143,7 +151,6 @@
 {% block body_script %}
 <!--==Jquery====================-->
 <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
-<script src="{% static 'js/jquery-3.7.1.js' %}"></script>
 
 
   <!-- Initialize Swiper -->
@@ -164,51 +171,6 @@
         swiper: swiper,
       },
     });
-
-
-    var $loupe = $(".loupe"),
-    loupeWidth = $loupe.width(),
-    loupeHeight = $loupe.height();
-
-$(document).on("mouseenter", ".product-img", function (e) {
-    var $currImage = $(this),
-        $img = $('<img/>')
-        .attr('src', $('img', this).attr("src"))
-        .css({ 'width': $currImage.width() * 2, 'height': $currImage.height() * 2 });
-
-    $loupe.html($img).fadeIn(100);
-    
-    $(document).on("mousemove",moveHandler);
-                   
-    function moveHandler(e) {
-        var imageOffset = $currImage.offset(),
-            fx = imageOffset.left - loupeWidth / 2,
-            fy = imageOffset.top - loupeHeight / 2,
-            fh = imageOffset.top + $currImage.height() + loupeHeight / 2,
-            fw = imageOffset.left + $currImage.width() + loupeWidth / 2;
-        
-        $loupe.css({
-            'left': e.pageX - 75,
-            'top': e.pageY - 75
-        });
-
-        var loupeOffset = $loupe.offset(),
-            lx = loupeOffset.left,
-            ly = loupeOffset.top,
-            lw = lx + loupeWidth,
-            lh = ly + loupeHeight,
-            bigy = (ly - loupeHeight / 4 - fy) * 2,
-            bigx = (lx - loupeWidth / 4 - fx) * 2;
-
-        $img.css({ 'left': -bigx, 'top': -bigy });
-
-        if (lx < fx || lh > fh || ly < fy || lw > fw) {
-            $img.remove();
-            $(document).off("mousemove",moveHandler);
-            $loupe.fadeOut(100);
-        }
-    }
-});
 
 
   </script>

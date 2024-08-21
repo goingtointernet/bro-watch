@@ -3285,14 +3285,15 @@ footer{
     padding-left: 3px;
 }
 .mySwiper2 .swiper-wrapper .swiper-slide img{
-    max-height: 360px;
+    max-height: 450px;
 }
 .mySwiper .swiper-wrapper .swiper-slide img{
-    max-height: 80px;
+    max-height: 100px;
     padding: 3px 0px;
 }
 .mySwiper .swiper-wrapper .swiper-slide{
     opacity: 0.6;
+    margin: 0px -1px;
 }
 .swiper-slide-thumb-active{
     border: 1px solid var(--main-color) !important;
@@ -4788,4 +4789,12 @@ a .alibaba{
     .about-page-story h4{
         font-size: 1.8rem;
     }
+}
+.cloud-zoom-big{
+    border: none !important;
+}
+.cloud-zoom,
+.swiper-slide #wrap
+{
+    height: 100%;
 }
