@@ -1571,8 +1571,10 @@ nav:after{
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 20px;
+}
+.main-img-news{
     max-height: 550px !important;
+    border-radius: 20px;
 }
 .static-content table,
 .static-content th,
@@ -2496,6 +2498,10 @@ nav:after{
     object-position: center;
     transition: all ease 0.3s;
 }
+.all-news-container .product-box .product-img img{
+    max-height: 120px;
+    object-fit: cover;
+}
 .product-box:hover img{
     transform: scale(1.2);
 }
@@ -3297,8 +3303,11 @@ footer{
 @media(max-width:724px){
     .d-product-text strong{
         font-size: 1.4rem;
-    
-}}
+    }
+    .all-news-container .product-box .product-img img{
+        max-height: 300px;
+    }
+}
 /*==hot-product-page===================*/
 .hot-products{
     margin-top: 20px;
@@ -4874,4 +4883,13 @@ a .alibaba{
 .swiper-slide #wrap
 {
     height: 100%;
+}
+
+/* News  */
+.static-container.new-static-container{
+    max-width: 1100px;
+    margin: auto;
+}
+.static-container.new-static-container .static-content p{
+    color: #252525;
 }

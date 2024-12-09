@@ -21,16 +21,60 @@
 
 
 <!--==Static-page=========================-->
+<div class="main-product-container">
+
+    <aside class="sidebar-main">
+
+        <div class="sidebar-category">
+            <div class="sidebar-category-heading">
+                <strong>Product Category</strong>  
+                <i class="fa-solid fa-bars"></i>
+            </div>
+                <ul class="sidebar-category-menu">
+                    {% for category in category  %}
+                    <li><a href="{% url 'category_detail' category.id %}" aria-label="{{category.name}}">{{category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+        </div>
+
+        <div class="sidebar-contact-box" style="background-image: url('{{sitedata.sidebar_contact_banner.url}}');">
+            <div class="sidebar-contact-box-icon">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <strong>WE CAN HELP YOU</strong>
+            <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
+            <a href="{% url 'contact' %}" aria-label="contact us">Contact Us</a>
+        </div>
+
+        <div class="sidebar-recent-product">
+            <div class="sidebar-recent-heading">
+                <i class="fa-solid fa-bars-progress"></i>
+                <strong>New Products</strong>
+            </div>
+            {% for product in recentProduct|slice:"3"  %}
+            <div class="sidebar-recent-box">
+                <a href="{% url 'svg_icon_detail' product.slug %}" aria-label="{{product.title}}" class="sidebar-recent-box-img"><img src="{{product.product_images.first.image.url}}" title="{{product.title}}"></a>
+                <div class="sidebar-recent-box-text">
+                    <a href="{% url 'svg_icon_detail' product.slug %}" aria-label="{{product.title}}">{{product.title}}</a>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </aside>
+
 <section class="static-page">
 
-    <div class="static-container">
+    <div class="static-container new-static-container">
         <div class="static-title">
             <span class="static-page-title-label">Title</span>
             <h1>{{staticpost.title}}</h1>
         </div>
 
         <div class="static-content">
-            <img src="{{staticpost.banner_image.url}}" alt="{{staticpost.title}}"/>
+            <img src="{{staticpost.banner_image.url}}" class="main-img-news" alt="{{staticpost.title}}"/>
             <p>{{staticpost.content| safe}}</p>
         </div>
 
@@ -38,6 +82,7 @@
     </div>
 
 </section>
+</div>
 
 
 
