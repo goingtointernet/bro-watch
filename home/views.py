@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from .models import HomeBannerImages,OemCustom,AboutPage, NewsPosts,AddFaq,OemOdm, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain
+from .models import HomeBannerImages,OemCustom,AboutPage,WhatGainHeading, NewsPosts,AddFaq,OemOdm, HomeAboutSection,HomePartners, WhatWeDoBox, Product, StaticPosts,Certificate ,WhatWeDo , HomeGroups, Category, WhatGain, FaqBanner
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -18,6 +18,7 @@ def index(request):
     whatwedobox = WhatWeDoBox.objects.all().order_by("-pk")
     banner = HomeBannerImages.objects.all().order_by("-pk")
     homeabout = HomeAboutSection.objects.all().first()
+    whatgainheading = WhatGainHeading.objects.all().first()
     home_partner = HomePartners.objects.first()
     
     
@@ -28,13 +29,14 @@ def index(request):
         products = Product.objects.filter(category=group.category)
         grouped_products.append({'group': group, 'products': products})
     
-    context = {'grouped_products': grouped_products, 'news':news, 'home_partner':home_partner, 'banner':banner, 'whatwedobox':whatwedobox, 'homeabout':homeabout, 'category':category, 'recent':recent, 'whatgain':whatgain,'whatwedo':whatwedo, 'certificate':certificate}
+    context = {'grouped_products': grouped_products, 'news':news, 'home_partner':home_partner, 'banner':banner, 'whatwedobox':whatwedobox, 'homeabout':homeabout, 'category':category, 'recent':recent, 'whatgain':whatgain,'whatgainheading':whatgainheading, 'whatwedo':whatwedo, 'certificate':certificate}
     return render(request, 'home/index.html', context)
 
 
 def faqs(request):
     faqs = AddFaq.objects.all().order_by('-pk')
-    return render(request, 'home/faqs.html', {'faqs':faqs})
+    banner = FaqBanner.objects.all().first()
+    return render(request, 'home/faqs.html', {'faqs':faqs, 'banner':banner})
 
 
 def aboutus(request):

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django_summernote.widgets import SummernoteWidget 
 from django.db import models 
 from .forms import ProductAdminForm
-from .models import StaticPosts,NewsPosts,SocialIcons, NavMenu,AboutPage, CustomerBox, OemCustom, OemCustomBox, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
+from .models import StaticPosts,FooterHeading, NewsPosts,SocialIcons, NavMenu,AboutPage, CustomerBox, OemCustom, OemCustomBox, FaqBanner, AddFaq,OemOdm, Oem, Faqs ,Certificate,WhatWeDo,WhatWeDoBox, HomePartners, HomePartnerImage,  SiteData,WhatGainHeading, WhatGain, Ads,ProductShowImages,HomeAboutSection, Product,ProductImages , Faqs,HomeBannerImages, Category, HomeGroups
 # Register static data
 admin.site.register(SiteData)
 # Register static post
@@ -29,6 +29,13 @@ admin.site.register(NewsPosts,NewsPostAdmin)
 admin.site.register(HomeAboutSection)
 # Ads
 admin.site.register(Ads)
+#faqs banner
+admin.site.register(FaqBanner)
+#footer heading
+admin.site.register(FooterHeading)
+#WhatGain heading
+admin.site.register(WhatGainHeading)
+
 #SVG
 # admin.site.register(Product)
 #Faqs

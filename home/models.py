@@ -34,6 +34,29 @@ class WhatWeDo(models.Model):
     banner_image = models.ImageField( upload_to = 'WhatWeDo')
 
 #Faqs
+
+class FaqBanner(models.Model):
+    heading = models.CharField(max_length=160, default="")
+    banner_image = models.ImageField( upload_to = 'faqs', null=True)
+
+    def __str__(self):
+        return self.heading
+    
+class FooterHeading(models.Model):
+    main_heading = models.CharField(max_length=160, default="")
+    product_heading = models.CharField(max_length=160, default="")
+    contact_heading = models.CharField(max_length=160, default="")
+
+    def __str__(self):
+        return self.main_heading
+    
+class WhatGainHeading(models.Model):
+    heading = models.CharField(max_length=160, default="")
+    paragraph = models.CharField(max_length=160, default="")
+
+    def __str__(self):
+        return self.heading
+
 class AddFaq(models.Model):
     heading = models.CharField(max_length=160)
 
@@ -205,6 +228,8 @@ class SiteData(models.Model):
 
 #Home About.
 class HomeAboutSection(models.Model):
+    heading = models.CharField(max_length=260, default="")
+    label = models.CharField(max_length=260, default="")
     paragrph = models.TextField( default="")
     video_file = models.FileField(upload_to='videos/', blank=True, null=True)
     

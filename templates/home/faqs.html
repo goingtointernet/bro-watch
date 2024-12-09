@@ -17,8 +17,8 @@
 
 {% block article_content %}
 <div class="category-banner">
-    <img src="{% static 'images/faqs.jpg' %}" alt="FAQs">
-    <h1>Frequently Asked Question's</h1>
+    <img src="{{banner.banner_image.url}}" alt="FAQs">
+    <h1>{{banner.heading}}</h1>
 </div>
 
 <div class="faqs-page-container">

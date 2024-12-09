@@ -1,5 +1,5 @@
 from django.conf import settings
-from .models import StaticPosts,SiteData, Ads, Category, Product
+from .models import StaticPosts,SiteData,FooterHeading, Ads, Category, Product
 
 #Static-Page-Post
 def pages(request):
@@ -9,7 +9,8 @@ def pages(request):
 #Site Data
 def sitedata(request):
     sitedata = SiteData.objects.all().first()
-    return {"sitedata": sitedata}
+    footer_heading = FooterHeading.objects.all().first()
+    return {"sitedata": sitedata, "footer_heading":footer_heading}
 
 #Ads Data
 def ads(request):

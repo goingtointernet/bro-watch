@@ -99,9 +99,10 @@
           <input type="checkbox" id="show-drop-collections">
 
           <nav class="navigation">
-
+            
             <!--**menu-btn*******-->
             <input type="checkbox" class="menu-btn" id="menu-btn">
+            <label for="menu-btn" class="close-bg"></label>
             <label for="menu-btn" class="menu-icon">
                 <span class="nav-icon"></span>
             </label>
@@ -209,7 +210,7 @@
 
         <!--**link-box**-->
         <div class="footer-link-box" data-aos="fade-right">
-            <strong>Main Link's</strong>
+            <strong>{{footer_heading.main_heading}}</strong>
             <ul>
               <li><a href="/" aria-label="go to home page">Home</a></li>
               {% for menu in sitedata.menu_list.all  %}
@@ -219,7 +220,7 @@
 
         <!--**link-box**-->
         <div class="footer-link-box" data-aos="fade-right">
-            <strong>Products Menu</strong>
+            <strong>{{footer_heading.product_heading}}</strong>
             <ul>
               {% for category in sitedata.nav_products_list.all  %}
                     <li><a  href="{% url 'category_detail' category.id %}">
@@ -231,7 +232,7 @@
 
         <!--**subscribe**-->
         <div class="footer-subscribe" data-aos="fade-right">
-            <strong>Contact</strong>
+            <strong>{{footer_heading.contact_heading}}</strong>
             <div class="footer-subscribe">
               <div class="footer-contact-box">
                 <i class="fa-solid fa-envelope"></i>
