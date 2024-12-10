@@ -30,8 +30,8 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
                 <ul class="sidebar-category-menu">
-                    {% for category in category  %}
-                    <li><a href="{% url 'category_detail' category.id %}" aria-label="{{category.name}}">{{category.name}}</a></li>
+                    {% for news in news|slice:":5"  %}
+                    <li><a href="{% url 'newspost' news.slug %}" aria-label="{{news.title}}">{{news.title}}</a></li>
                     {% endfor %}
                 </ul>
         </div>

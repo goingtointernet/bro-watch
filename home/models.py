@@ -113,7 +113,7 @@ class Product(models.Model):
     title = models.CharField(max_length=160)
     meta_desc = models.CharField(max_length=160)
     meta_key = models.CharField(max_length=260)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.ManyToManyField(Category, blank=True)
     brand = models.CharField(max_length=160, default="")
     model = models.CharField(max_length=160, default="")
     weight = models.CharField(max_length=160, default="")

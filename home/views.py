@@ -160,14 +160,15 @@ def staticpost(request,slug):
 
 def newspost(request,slug):
     staticpost = get_object_or_404(NewsPosts, slug=slug)
-    allpost = NewsPosts.objects.all()
+    allpost = NewsPosts.objects.all().order_by('-pk')
+    previous_post = NewsPosts.objects.filter(pk__lt=staticpost.pk).order_by('-pk').first()
+    next_post = NewsPosts.objects.filter(pk__gt=staticpost.pk).order_by('pk').first()
     
-    context = {'allpost': allpost,'staticpost':staticpost}
+    context = {'allpost': allpost,'staticpost':staticpost, 'news':allpost, 'previous_post': previous_post, 'next_post': next_post}
     return render(request, 'home/news-post.html', context)
 
 
 def category_detail(request, category):
-    try:
         categoryObj =  Category.objects.filter(id=category).first()
         categoryName = categoryObj.name
         p = Paginator(Product.objects.filter(category=category).order_by('-pk'), 15)
@@ -185,9 +186,7 @@ def category_detail(request, category):
 
         params={'products':  product_data, 'pagination':pagination, 'page_range':page_range, "categoryName":categoryName, "categoryObj":categoryObj}
         return render(request, 'home/category-product.html', params)
-    except Exception as e:
-        print("error", e)
-        return render(request, '404.html')
+
     
 
 #==Contact-Page==========================#

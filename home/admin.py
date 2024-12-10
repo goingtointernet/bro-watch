@@ -120,8 +120,12 @@ class ProductShowImagesInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImagesInline, ProductShowImagesInline]
     form = ProductAdminForm
-    list_display = ['title', 'category', 'brand', 'price']
+    list_display = ['title', 'get_categories', 'brand', 'price']
     search_fields = ['title', 'brand', 'model']
+
+    def get_categories(self, obj):
+        return ", ".join([cat.name for cat in obj.category.all()])  # Adjust 'cat.name' to your field
+    get_categories.short_description = "Categories"
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)

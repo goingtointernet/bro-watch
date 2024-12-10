@@ -324,7 +324,7 @@ header{
     position: fixed;
     left: 0px;
     transform: translateX(0%);
-    top: 150px;
+    top: 178px;
     background-color: #ffffff;
     z-index: 101;
     width: 100%;
@@ -335,7 +335,7 @@ header{
     padding-bottom: 50px;
 }
 .drop-collections-menu{
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
     margin-top: 40px;
 }
@@ -411,7 +411,7 @@ nav:after{
 }
 .drop-collections-menu{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 35px;
 }
 .drop-box-img{
@@ -469,9 +469,24 @@ nav:after{
 .close-bg{
     display: none;
 }
-@media(max-width:1064px){
+@media(max-width:1075px){
     .header-top{
         z-index: 100;
+    }
+    .language-dropdown-container{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .language-dropdown-container label{
+        margin-left: 0px !important;
+    }
+    .logo{
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .navigation .menu-icon{
+        grid-column: 3/4;
+        margin-left: auto;
     }
     .close-bg{
         position: fixed;
@@ -2688,9 +2703,10 @@ footer{
 }
 .footer-logo{
     display: flex;
+    margin-bottom: 20px;
 }
 .footer-logo img{
-    max-height: 150px;
+    max-height: 85px;
     height: 100%;
     object-fit: contain;
     object-position: center;
@@ -3910,7 +3926,7 @@ footer{
     font-weight: 800;
 }
 .about-us-heading strong{
-    color: #727272;
+    color: var(--second-main-color);
     font-size: 1rem;
     font-weight: 400;
 }
@@ -4895,6 +4911,17 @@ a .alibaba{
 
 @media(max-width:724px){
     #about-us{
-        padding-top: 30px;
+        padding-top:60px;
     }
+}
+.category-flex-container{
+    display: flex;
+    align-items: center;
+    grid-gap: 4px;
+}
+.news-navigation{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    grid-gap: 20px;
 }

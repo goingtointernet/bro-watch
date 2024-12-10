@@ -104,7 +104,11 @@
         <!--**text************-->
         <div class="d-product-text">
             <!--category-->
-            <span class="category">{{product.category}}</span>
+            <div class="category-flex-container">
+                {% for category in product.category.all %}
+                    <span class="category">{{ category }}</span>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </div>
             <!--title-->
             <strong>{{product.title}}</strong>
             <!--details-->
