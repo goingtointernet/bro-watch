@@ -89,7 +89,9 @@
                 <a href="{% url 'svg_icon_detail' product.slug %}" class="product-box-p-name">{{product.title}}</a>
                 <!--category-->
                 <span class="p-box-category">
-                    <a href="{% url 'category_detail' product.category.id %}">{{product.category}}</a>
+                    {% for category in product.category.all %}
+                        <a href="{% url 'category_detail' category.id %}" aria-label="{{ category.name }}">{{ category.name }}</a> {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
                 </span>
                 <!--details-->
                 <p>{{product.details}}</p>
