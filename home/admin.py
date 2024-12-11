@@ -123,6 +123,38 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['title', 'get_categories', 'brand', 'price']
     search_fields = ['title', 'brand', 'model']
 
+    formfield_overrides = { 
+            models.TextField: {'widget': SummernoteWidget}, 
+     }
+    
+    actions = ['duplicate_product']
+    
+    def duplicate_product(self, request, queryset):
+        """
+        Custom admin action to duplicate selected products.
+        """
+        for product in queryset:
+            new_product = Product(
+                title=f"{product.title} (Copy)",
+                meta_desc=product.meta_desc,
+                meta_key=product.meta_key,
+                brand=product.brand,
+                model=product.model,
+                weight=product.weight,
+                waterproof=product.waterproof,
+                feature=product.feature,
+                details=product.details,
+                price=product.price,
+                slug=f"{product.slug}-copy"
+            )
+            new_product.save()
+            # If there are ManyToMany fields, copy them separately
+            new_product.category.set(product.category.all())
+
+        self.message_user(request, f"{queryset.count()} product(s) duplicated successfully.")
+
+    duplicate_product.short_description = "Duplicate selected product(s)"
+
     def get_categories(self, obj):
         return ", ".join([cat.name for cat in obj.category.all()])  # Adjust 'cat.name' to your field
     get_categories.short_description = "Categories"
