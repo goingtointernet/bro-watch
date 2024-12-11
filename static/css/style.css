@@ -2373,6 +2373,11 @@ nav:after{
 .product-text .p-box-category{
     font-size: 0.9rem;
     color: var(--second-main-color);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .r-product-text .p-box-category a,
 .product-text .p-box-category a{
@@ -3974,7 +3979,7 @@ footer{
 .about-us-img video{
     width: 100%;
     height: 300px;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     border: none;
     outline: none;
@@ -4917,7 +4922,10 @@ a .alibaba{
 .category-flex-container{
     display: flex;
     align-items: center;
-    grid-gap: 4px;
+    grid-gap: 0px 4px;
+    flex-wrap: wrap;
+    line-height: 1.3rem;
+    color: #424242;
 }
 .news-navigation{
     display: flex;

@@ -173,7 +173,7 @@
 
     <!--**container*****************-->
     <div class="popular-product-container" data-aos="fade-left">
-        {% for recent in recent|slice:"10" %}
+        {% for recent in recent|slice:"8" %}
         <!--**box1***-->
         <div class="product-box">
             <!--img-->
@@ -191,7 +191,7 @@
                   {% endfor %}
                 </span>
                 <!--details-->
-                <p>{{recent.details}}</p>
+                <p>{{recent.meta_desc}}</p>
                 <!--price-->
                 <span class="p-box-price">Price: {{recent.price}}$</span>
             </div>
