@@ -51,7 +51,7 @@
         <label for="searchshow" class="close-btn-search"><i class="fa-solid fa-xmark"></i></label>
           <div class="header-search">
           <!--input-->
-          <input type="text" name="search" value="{{search}}" id="search" placeholder="START TYPING CHANGE TO: SEARCH YOUR WATCH..." required/>
+          <input type="text" name="search" value="{{search}}" id="search" placeholder="SEARCH YOUR WATCH..." required/>
           <!--button-->
           <button><i class="fa-solid fa-magnifying-glass"></i></button>
           </div>
@@ -283,6 +283,17 @@
     myID = document.getElementById("scroll-btn");
     header = document.getElementById("header");
     const checkbox = document.getElementById('language-dropdown-check');
+
+    document.addEventListener('click', function (event) {
+      const checkbox = document.getElementById('language-dropdown-check');
+      const dropdownContainer = document.querySelector('.language-dropdown-container');
+      
+      // Check if the click is outside the dropdown container
+      if (checkbox.checked && !dropdownContainer.contains(event.target)) {
+        checkbox.checked = false;
+      }
+    });
+    
     var myScrollFunc = function () {
       var y = window.scrollY;
       if (y >= 200) {
@@ -310,7 +321,8 @@
   const productBg = document.querySelector('.product-bg');
   const checkbox = document.getElementById('show-drop-collections');
   const navproduct = document.getElementById('drop-collections');
-
+  let hoverTimer;
+  let isMouseOverNavProduct = false;
   
 
   // Show productBg when hovering over the label
@@ -319,15 +331,27 @@
     if (window.innerWidth > 1000) {
     navproduct.style.display = 'block';
     }
+    clearTimeout(hoverTimer);
   });
 
+  label.addEventListener('mouseleave', function () {
+    if (!checkbox.checked && window.innerWidth > 1000 && !isMouseOverNavProduct) {
+        hoverTimer = setTimeout(() => {
+        navproduct.style.display = 'none';
+        productBg.style.display = 'none';
+      }, 500); // Wait 2 seconds
+      }
+  });
   
   navproduct.addEventListener('mouseenter', function() {
+    isMouseOverNavProduct = true;
+    clearTimeout(hoverTimer);
     if (window.innerWidth > 1000) {
     navproduct.style.display = 'block';
     }
   });
   navproduct.addEventListener('mouseleave', function() {
+    isMouseOverNavProduct = false; 
     if (!checkbox.checked & window.innerWidth > 1000) {
       navproduct.style.display = 'none';
     }
