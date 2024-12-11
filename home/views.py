@@ -112,7 +112,7 @@ def search(request):
 
 #News
 def news(request):
-    p =  Paginator(NewsPosts.objects.all().order_by('-pk'), 12)
+    p =  Paginator(NewsPosts.objects.all().order_by('-pk'), 8)
     page = request.GET.get('page')
     pagination = p.get_page(page)
     product_data=pagination
