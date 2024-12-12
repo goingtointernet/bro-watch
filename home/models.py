@@ -200,6 +200,7 @@ class SiteData(models.Model):
     fav_icon = models.ImageField( upload_to = 'logo', null = True, blank = True)
     email = models.CharField(max_length=160, default="")
     phone = models.CharField(max_length=160, default="")
+    whatsapp_number = models.CharField(max_length=160, default="")
     whatsapp_link = models.CharField(max_length=160, default="")
     address = models.CharField(max_length=260, default="")
     social_links = models.ManyToManyField(SocialIcons, blank=True)
