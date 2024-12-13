@@ -36,7 +36,7 @@
     <div class="swiper mySwiperBanner">
         <div class="swiper-wrapper">
         {% for banner in banner %}
-          <a href="{% url 'all_category' %}" class="swiper-slide" aria-label="go to all categories">
+          <a href="{{banner.link}}" class="swiper-slide" aria-label="go to all categories">
             <img src="{{banner.image.url}}" alt="Banner image">
           </a>
         {% endfor %}
