@@ -4,7 +4,7 @@ from django.urls import reverse
 # Banner Image
 class HomeBannerImages(models.Model):
     image = models.ImageField( upload_to = 'Banner', null = True, blank = True)
-    link = models.CharField(max_length=360)
+    link = models.CharField(max_length=360, default='')
 
 # Category
 class Category(models.Model):
