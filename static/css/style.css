@@ -3138,7 +3138,7 @@ footer{
     transition: all ease 0.3s;
 }
 .sidebar-category-menu li a:hover{
-    color: #fe8b0e;
+    color: var(--second-main-color);
 }
 .sidebar-category-menu li:last-child a{
     border-bottom: none;
