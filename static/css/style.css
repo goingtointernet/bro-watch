@@ -3137,6 +3137,9 @@ footer{
     border-bottom: 1px dashed #cfcfcf;
     transition: all ease 0.3s;
 }
+.sidebar-category-menu li a.active{
+    color: var(--second-main-color);
+}
 .sidebar-category-menu li a:hover{
     color: var(--second-main-color);
 }

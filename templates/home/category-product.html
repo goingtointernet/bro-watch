@@ -31,7 +31,7 @@
             </div>
                 <ul class="sidebar-category-menu">
                     {% for category in category  %}
-                    <li><a href="{% url 'category_detail' category.id %}" aria-label="{{category.name}}">{{category.name}}</a></li>
+                    <li><a href="{% url 'category_detail' category.id %}" class="{% if categoryObj.id == category.id %}active{% endif %}" aria-label="{{category.name}}">{{category.name}}</a></li>
                     {% endfor %}
                 </ul>
         </div>
