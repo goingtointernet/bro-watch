@@ -30,7 +30,7 @@
 
         <div class="sidebar-category">
             <div class="sidebar-category-heading">
-                <strong>Product Category</strong>  
+                <strong>产品类别</strong>  
                 <i class="fa-solid fa-bars"></i>
             </div>
                 <ul class="sidebar-category-menu">
@@ -44,15 +44,15 @@
             <div class="sidebar-contact-box-icon">
                 <i class="fa-solid fa-headset"></i>
             </div>
-            <strong>WE CAN HELP YOU</strong>
-            <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
-            <a href="{% url 'contact' %}" aria-label="contact us">Contact Us</a>
+            <strong>我们可以帮助您</strong>
+            <p>您可以通过任何您方便的方式联系我们。我们的员工始终通过电子邮件和短信在线。</p>
+            <a href="{% url 'contact' %}" aria-label="contact us">联系我们</a>
         </div>
 
         <div class="sidebar-recent-product">
             <div class="sidebar-recent-heading">
                 <i class="fa-solid fa-bars-progress"></i>
-                <strong>New Products</strong>
+                <strong>新产品</strong>
             </div>
             {% for product in recentProduct|slice:"3"  %}
             <div class="sidebar-recent-box">
@@ -112,17 +112,17 @@
             <!--title-->
             <strong>{{product.title}}</strong>
             <!--details-->
-            <p><b>Brand: </b>{{product.brand}}</p>
-            <p><b>Model: </b>{{product.model}}</p>
-            <p><b>Weight: </b>{{product.weight}}</p>
-            <p><b>Waterproof: </b>{{product.waterproof}}</p>
-            <p><b>Feature: </b>{{product.feature}}</p>
+            <p><b>品牌: </b>{{product.brand}}</p>
+            <p><b>模型: </b>{{product.model}}</p>
+            <p><b>重量: </b>{{product.weight}}</p>
+            <p><b>防水的: </b>{{product.waterproof}}</p>
+            <p><b>特征: </b>{{product.feature}}</p>
             <!--price-->
-            <span class="price"><span style="font-size:16px; font-weight:500;">Price:</span> {{product.price}}$</span>
+            <span class="price"><span style="font-size:16px; font-weight:500;">价格：</span> {{product.price}}$</span>
             <div class="product-contact-btns">
-                <a href="{% url 'contact' %}" aria-label="Inquire Now"><i class="fa-solid fa-comment"></i>Inquire Now</a>
+                <a href="{% url 'contact' %}" aria-label="Inquire Now"><i class="fa-solid fa-comment"></i>立即咨询</a>
                 <a href="{{sitedata.whatsapp_link}}" target="_blank" aria-label="Go to whatsapp"> <i class="fab fa-whatsapp"></i>WhatsApp</a>
-                <a href="mailto:{{sitedata.email}}" > <i class="fa-solid fa-envelope" aria-label="Contact with email"></i>Email</a>
+                <a href="mailto:{{sitedata.email}}" > <i class="fa-solid fa-envelope" aria-label="Contact with email"></i>电子邮件</a>
             </div>
         </div>
 
@@ -132,14 +132,14 @@
 
 
     <section class="d-product-description">
-        <h2>Description</h2>
+        <h2>描述</h2>
         <p>{{product.details| safe}}</p>
     </section>
 
     <section class="d-product-show">
-        <h2>Product Show</h2>
+        <h2>产品展示</h2>
         {% for showImages in product.product_show_images.all %}
-        <img src="{{showImages.image.url}}"  alt="Product Show"/>
+        <img src="{{showImages.image.url}}"  alt="产品展示"/>
         {% endfor %}
     </section>
 

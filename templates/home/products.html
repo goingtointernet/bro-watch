@@ -1,25 +1,25 @@
 {% extends 'layout/base.html' %}
 
-{% block title %}All Products - Bro Union Made Watch{% endblock title %}
+{% block title %}所有产品 - {{sitedata.site_name}}{% endblock title %}
 
 {% load static %}
 
 
 {% block meta_tags %}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="description" content="All Products, {{sitedata.search_desc}}">
-<meta name="keywords" content="All Products, {{sitedata.search_key}}">
+<meta name="description" content="所有产品, {{sitedata.search_desc}}">
+<meta name="keywords" content="所有产品, {{sitedata.search_key}}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="All Products - Bro Union Made Watch">
-<meta property="og:description" content="All Products, {{sitedata.search_desc}}">
+<meta property="og:title" content="所有产品 - {{sitedata.site_name}}">
+<meta property="og:description" content="所有产品, {{sitedata.search_desc}}">
 {% endblock meta_tags %}
 
 
 {% block article_content %}
 
 <div class="category-banner">
-    <img src="{{sitedata.all_product_page_banner.url}}" alt="All Products">
-    <h1>All Products</h1>
+    <img src="{{sitedata.all_product_page_banner.url}}" alt="所有产品">
+    <h1>所有产品</h1>
 </div>
 
 <div class="main-product-container">
@@ -28,7 +28,7 @@
 
         <div class="sidebar-category">
             <div class="sidebar-category-heading">
-                <strong>Product Category</strong>  
+                <strong>产品类别</strong>  
                 <i class="fa-solid fa-bars"></i>
             </div>
                 <ul class="sidebar-category-menu">
@@ -42,15 +42,15 @@
             <div class="sidebar-contact-box-icon">
                 <i class="fa-solid fa-headset"></i>
             </div>
-            <strong>WE CAN HELP YOU</strong>
-            <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
-            <a href="{% url 'contact' %}">Contact Us</a>
+            <strong>我们可以帮助您</strong>
+            <p>您可以通过任何您方便的方式联系我们。我们的员工始终通过电子邮件和短信在线。</p>
+            <a href="{% url 'contact' %}">联系我们</a>
         </div>
 
         <div class="sidebar-recent-product">
             <div class="sidebar-recent-heading">
                 <i class="fa-solid fa-bars-progress"></i>
-                <strong>New Products</strong>
+                <strong>新产品</strong>
             </div>
             {% for product in recentProduct|slice:"3"  %}
             <div class="sidebar-recent-box">
@@ -72,7 +72,7 @@
         {% if group.heading %}
         <h3>{{group.heading}}</h3>
         {% else %}
-        <h3>All Products</h3>
+        <h3>所有产品</h3>
         {% endif %}
     </div>
 
@@ -98,7 +98,7 @@
                 <!--details-->
                 <p>{{product.details}}</p>
                 <!--price-->
-                <span class="p-box-price">Price: {{product.price}}$</span>
+                <span class="p-box-price">价格： {{product.price}}$</span>
             </div>
         </div><!--box-end-->
         {% endfor %}
@@ -108,11 +108,11 @@
 <div class="page-number">
     {% if pagination.has_previous %}
     <a href="{% url 'allproducts' %}?page=1">&laquo;</a>
-    <a href="{% url 'allproducts' %}?page={{pagination.previous_page_number}}">Previous</a>
+    <a href="{% url 'allproducts' %}?page={{pagination.previous_page_number}}">以前的</a>
     {% endif %}
 
     {% if pagination.has_next %}    
-    <a href="{% url 'allproducts' %}?page={{pagination.next_page_number}}">Next</a>
+    <a href="{% url 'allproducts' %}?page={{pagination.next_page_number}}">下一个</a>
     <a href="{% url 'allproducts' %}?page={{pagination.paginator.num_pages}}">&raquo;</a>
     {% endif %}
 </div>
@@ -197,7 +197,7 @@
                 d="M369.67748,81.40904c-1.48939,0-2.98174-.54294-4.15367-1.64367l-28.51497-26.72296c-2.45067-2.29342-2.57528-6.13854-.27889-8.58624,2.29045-2.4566,6.13557-2.57824,8.58624-.27889l28.51497,26.72296c2.45067,2.29342,2.57528,6.13854,.27889,8.58624-1.19566,1.27874-2.81263,1.92256-4.43256,1.92256Z"
                 fill="#222223" />
         </svg>
-        <span style="font-size:0.9rem;">*Sorry, we couldn't find any matches for <b>{{search}}</b></span>
+        <span style="font-size:0.9rem;">*抱歉，我们找不到任何匹配项 <b>{{search}}</b></span>
         </div>
         {% endif %}
 </section>

@@ -1,17 +1,17 @@
 {% extends 'layout/base.html' %}
 
-{% block title %} All Categories - {{sitedata.site_name}}{% endblock title %}
+{% block title %} 所有类别 - {{sitedata.site_name}}{% endblock title %}
 
 {% load static %}
 
 
 {% block meta_tags %}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="description" content="All categories, Get all type of watches at {{sitedata.site_name}}">
-<meta name="keywords" content="All Categories, {{sitedata.site_name}}, BRO-UNION WATCH WEBSITE, DIGITAL WATCH, FASHION WATCH, SPORTS WATCH, OEM WATCH">
+<meta name="description" content="所有类别, 获取所有类型的手表 {{sitedata.site_name}}">
+<meta name="keywords" content="所有类别, {{sitedata.site_name}}, BRO-UNION WATCH WEBSITE, DIGITAL WATCH, FASHION WATCH, SPORTS WATCH, OEM WATCH, swoggerwatch.com, swogger watch">
 <meta property="og:type" content="website">
-<meta property="og:title" content="All Categories - {{sitedata.site_name}}">
-<meta property="og:description" content="All categories, Get all type of watches at {{sitedata.site_name}}">
+<meta property="og:title" content="所有类别 - {{sitedata.site_name}}">
+<meta property="og:description" content="所有类别, 获取所有类型的手表 {{sitedata.site_name}}">
 {% endblock meta_tags %}
 
 
@@ -22,7 +22,7 @@
 
         <div class="sidebar-category">
             <div class="sidebar-category-heading">
-                <strong>Product Category</strong>  
+                <strong>产品类别</strong>  
                 <i class="fa-solid fa-bars"></i>
             </div>
                 <ul class="sidebar-category-menu">
@@ -36,15 +36,15 @@
             <div class="sidebar-contact-box-icon">
                 <i class="fa-solid fa-headset"></i>
             </div>
-            <strong>WE CAN HELP YOU</strong>
-            <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
-            <a href="{% url 'contact' %}" aria-label="Contact Us">Contact Us</a>
+            <strong>我们可以帮助您</strong>
+            <p>您可以通过任何您方便的方式联系我们。我们的员工始终通过电子邮件和短信在线。</p>
+            <a href="{% url 'contact' %}" aria-label="Contact Us">联系我们</a>
         </div>
 
         <div class="sidebar-recent-product">
             <div class="sidebar-recent-heading">
                 <i class="fa-solid fa-bars-progress"></i>
-                <strong>New Products</strong>
+                <strong>新产品</strong>
             </div>
             {% for product in recentProduct|slice:"3"  %}
             <div class="sidebar-recent-box">
@@ -65,7 +65,7 @@
         {% if group.heading %}
         <h3>{{group.heading}}</h3>
         {% else %}
-        <h3>All Category</h3>
+        <h3>所有类别</h3>
         {% endif %}
     </div>
 
@@ -88,7 +88,7 @@
     </div>
 
     {% if all_category|length < 1 %} <div class="search-not-found">
-        <span style="color:red; font-size:0.8rem;">*No category added yet</span>
+        <span style="color:red; font-size:0.8rem;">*尚未添加类别</span>
     {% endif %}
     
 
@@ -96,11 +96,11 @@
 <div class="page-number">
     {% if pagination.has_previous %}
     <a href="search?search={{search}}&page=1" aria-label="go to first page">&laquo;</a>
-    <a href="search?search={{search}}&page={{pagination.previous_page_number}}" aria-label="go to previous page">Previous</a>
+    <a href="search?search={{search}}&page={{pagination.previous_page_number}}" aria-label="go to previous page">以前的</a>
     {% endif %}
 
     {% if pagination.has_next %}    
-    <a href="search?search={{search}}&page={{pagination.next_page_number}}" aria-label="go to next page">Next</a>
+    <a href="search?search={{search}}&page={{pagination.next_page_number}}" aria-label="go to next page">下一个</a>
     <a href="search?search={{search}}&page={{pagination.paginator.num_pages}}" aria-label="go to last page">&raquo;</a>
     {% endif %}
 </div>

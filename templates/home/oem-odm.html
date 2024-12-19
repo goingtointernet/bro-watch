@@ -1,6 +1,6 @@
 {% extends 'layout/base.html' %}
 
-{% block title %} OEM/ODM - {{sitedata.site_name}}{% endblock title %}
+{% block title %} OEM 或 ODM - {{sitedata.site_name}}{% endblock title %}
 
 {% load static %}
 
@@ -8,16 +8,16 @@
 {% block meta_tags %}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="description" content="{{sitedata.search_desc}}">
-<meta name="keywords" content="OEM/ODM, {{sitedata.search_key}}">
+<meta name="keywords" content="OEM 或 ODM, {{sitedata.search_key}}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="OEM/ODM - {{sitedata.site_name}}">
+<meta property="og:title" content="OEM 或 ODM - {{sitedata.site_name}}">
 <meta property="og:description" content=" {{sitedata.search_desc}}">
 {% endblock meta_tags %}
 
 
 {% block article_content %}
 <div class="category-banner">
-    <img src="{{oemodm.banner_image.url}}" alt="FAQs">
+    <img src="{{oemodm.banner_image.url}}" alt="OEM 或 ODM">
     <h1>{{oemodm.heading}}</h1>
 </div>
 

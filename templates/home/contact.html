@@ -3,17 +3,17 @@
 {% load static %}
 
 <!--==Title========================-->
-{% block title %}Contact Us - {{sitedata.site_name}}{% endblock title %}
+{% block title %}联系我们 - {{sitedata.site_name}}{% endblock title %}
 
 
 {% block meta_tags %}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="description" content="If you any query or question, please contact us.">
-<meta name="keywords" content="Contact - {{sitedata.site_name}}">
+<meta name="description" content="如果您有任何疑问或疑问，请联系我们。">
+<meta name="keywords" content="联系我们 - {{sitedata.site_name}}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{sitedata.site_url}}/contact">
-<meta property="og:title" content="Contact Us - {{sitedata.site_name}}">
-<meta property="og:description" content="If you any query or question, please contact us.">
+<meta property="og:title" content="联系我们 - {{sitedata.site_name}}">
+<meta property="og:description" content="如果您有任何疑问或疑问，请联系我们。">
 {% endblock meta_tags %}
 
 <!--==Body=========================-->
@@ -21,7 +21,7 @@
 {% block home_main %}
 <div class="category-banner" style="max-width:100%; border-radius:0px; margin-top:50px">
     <img src="{% static 'images/oem-odm.webp' %}" alt="FAQs">
-    <h1>Contact Us</h1>
+    <h1>联系我们</h1>
 </div>
 {% endblock home_main %}
 
@@ -32,9 +32,9 @@
 <section id="contact-page" style="background-image: url('{{sitedata.contact_page_bg.url}}');">
     
     <h2>{{sitedata.site_name}}</h2>
-    <h3>Looking forward to your inquiry!</h3>
+    <h3>期待您的垂询！</h3>
     <div class="contact-page">
-        <h1>Leave Your Message</h1>
+        <h1>留言</h1>
 
         {% if messages %}
         <ul class="messages-profile">
@@ -46,18 +46,18 @@
         <!--==Form===================-->
         <form class="contact-form" method="POST" action="{% url 'contact' %}">
             {% csrf_token %}
-            <input type="text" name="name" placeholder="*Full Name" required/>
-            <input type="email" name="email" placeholder="*Email (We will reply with via email in 24 hours)" required/>
-            <input type="number" name="phone" placeholder="*Phone/Whatsapp/WeChat(Very Important)" required/>
-            <textarea placeholder="*Enter product details such as size, color, materials, etc. and specific requirements to receive an accurate quote." name="message" required></textarea>
-            <input type="submit" value="Send"/>
+            <input type="text" name="name" placeholder="*姓名" required/>
+            <input type="email" name="email" placeholder="*电子邮件（我们将在24小时内通过电子邮件回复）" required/>
+            <input type="number" name="phone" placeholder="*电话/Whatsapp/WeChat（非常重要）" required/>
+            <textarea placeholder="*输入产品详细信息，例如尺寸、颜色、材料等以及具体要求，以获得准确的报价。" name="message" required></textarea>
+            <input type="submit" value="发送"/>
         </form>
     </div>
 
 
     
     <div id="contact-details">
-    <h2>CONTACT DETAILS</h2>
+    <h2>联系方式</h2>
 
     <div class="contact-details-grid">
         <div class="contact-details-container">
@@ -67,7 +67,7 @@
                 <i class="fa-solid fa-phone"></i>
             </div>
             <a href="tel:{{sitedata.phone}}" aria-label="phone" class="contact-details-box-text">
-                Phone: {{sitedata.phone}}
+                电话: {{sitedata.phone}}
             </a>
         </div>
 
@@ -85,7 +85,7 @@
                 <i class="fa-solid fa-envelope"></i>
             </div>
             <a href="mailto:{{sitedata.email}}" aria-label="email" class="contact-details-box-text">
-                Email: {{sitedata.email}}
+                电子邮件: {{sitedata.email}}
             </a>
         </div>
 
@@ -94,7 +94,7 @@
                 <i class="fa-solid fa-location-dot"></i>
             </div>
             <strong class="contact-details-box-text">
-                Address: {{sitedata.address}}
+                地址: {{sitedata.address}}
             </strong>
         </div>
 
@@ -107,7 +107,7 @@
         </div>
     </div>
 
-    <span class="contact-available-text">AVAILABLE AT {{sitedata.store_available_time}}</span>
+    <span class="contact-available-text">发售时间： {{sitedata.store_available_time}}</span>
 
 
     </div>

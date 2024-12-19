@@ -37,7 +37,7 @@
         <div class="swiper-wrapper">
         {% for banner in banner %}
           <a href="{{banner.link}}" class="swiper-slide" aria-label="go to all categories">
-            <img src="{{banner.image.url}}" alt="Banner image">
+            <img src="{{banner.image.url}}" alt="横幅图片">
           </a>
         {% endfor %}
         </div>
@@ -70,7 +70,7 @@
     <div class="whatwedo-text" data-aos="fade-up">
         <h3>{{whatwedo.title}}</h3>
         <p>{{whatwedo.paragraph}}</p>
-        <a href="{% url 'contact' %}" aria-label="contact us">Inquiry</a>
+        <a href="{% url 'contact' %}" aria-label="contact us">询问</a>
     </div>
 </section>
 
@@ -150,14 +150,14 @@
                 <!--title-->
                 <strong class="product-box-p-name">{{category.name}}</strong>
                 
-                <a href="{% url 'category_detail' category.id %}" aria-label="view all categories">View More</a>
+                <a href="{% url 'category_detail' category.id %}" aria-label="view all categories">查看更多</a>
             </div>
         </div><!--box-end-->
         {% endfor %}
     
     </div>
 
-    <a href="{% url 'all_category' %}" aria-label="see all watches" class="category-view-all-btn">See All Watches</a>
+    <a href="{% url 'all_category' %}" aria-label="see all watches" class="category-view-all-btn">查看所有手表</a>
 
 </section><!--recent-end-->
 
@@ -167,8 +167,8 @@
 
     <!--**heading********************-->
     <div class="product-heading" data-aos="fade">
-        <h3>Recent Product's</h3>
-        <a href="{% url 'all_category' %}" aria-label="go to all recent products">All</a>
+        <h3>最近的产品</h3>
+        <a href="{% url 'all_category' %}" aria-label="go to all recent products">全部</a>
     </div>
 
     <!--**container*****************-->
@@ -193,7 +193,7 @@
                 <!--details-->
                 <p>{{recent.meta_desc}}</p>
                 <!--price-->
-                <span class="p-box-price">Price: {{recent.price}}$</span>
+                <span class="p-box-price">价格: {{recent.price}}$</span>
             </div>
         </div><!--box-end-->
         {% endfor %}
@@ -206,8 +206,8 @@
       <section id="certificate">
              <!--blog-heading-->
              <div class="blog-heading" data-aos="fade-up">
-                <h3>Certificate Display</h3>
-                <span>Please feel free to contact our wholesale team for the relevant certificates you need.</span>
+                <h3>证书展示</h3>
+                <span>请随时联系我们的批发团队获取您需要的相关证书。</span>
             </div>
         <div class="swiper mySwiperCertificate" data-aos="fade-right">
             <div class="swiper-wrapper">
@@ -224,7 +224,7 @@
 {% if home_partner %}
 <section id="home-contact">
     <img class="home-contact-bg" src="{{home_partner.BackgroundImg.url}}" alt="contact">
-    <h3 data-aos="fade-up">Partners</h3>
+    <h3 data-aos="fade-up">合作伙伴</h3>
     <div class="home-contact-container" data-aos="fade-left">
         <div class="home-contact-slider">
             <!-- Swiper -->
@@ -243,7 +243,7 @@
         <div class="home-contact-text">
             <strong>{{ home_partner.heading }}</strong>
             <p>{{ home_partner.paragraph }}</p>
-            <a href="{% url 'contact' %}" aria-label="contact us">Inquiry</a>
+            <a href="{% url 'contact' %}" aria-label="contact us">询问</a>
         </div>
     </div>
 </section>
@@ -254,8 +254,8 @@
 <section id="blog">
     <!--blog-heading-->
     <div class="blog-heading" data-aos="fade-up">
-        <h3>NEWS</h3>
-        <span>Discover more trends, innovations and knowledges in the watch industry.</span>
+        <h3>消息</h3>
+        <span>发现钟表行业的更多趋势、创新和知识。</span>
     </div>
 
 

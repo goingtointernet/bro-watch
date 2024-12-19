@@ -27,7 +27,7 @@
 
         <div class="sidebar-category">
             <div class="sidebar-category-heading">
-                <strong>Recent News</strong>  
+                <strong>最新消息</strong>  
                 <i class="fa-solid fa-bars"></i>
             </div>
                 <ul class="sidebar-category-menu">
@@ -41,15 +41,15 @@
             <div class="sidebar-contact-box-icon">
                 <i class="fa-solid fa-headset"></i>
             </div>
-            <strong>WE CAN HELP YOU</strong>
-            <p>You can contact us at any way that is convenient for you. Our staffs are always online via E-mail and SMS.</p>
-            <a href="{% url 'contact' %}" aria-label="contact us">Contact Us</a>
+            <strong>我们可以帮助您</strong>
+            <p>您可以通过任何您方便的方式联系我们。我们的员工始终通过电子邮件和短信在线。</p>
+            <a href="{% url 'contact' %}" aria-label="contact us">联系我们</a>
         </div>
 
         <div class="sidebar-recent-product">
             <div class="sidebar-recent-heading">
                 <i class="fa-solid fa-bars-progress"></i>
-                <strong>New Products</strong>
+                <strong>新产品</strong>
             </div>
             {% for product in recentProduct|slice:"3"  %}
             <div class="sidebar-recent-box">
@@ -78,11 +78,11 @@
 
             <div class="news-navigation">
                 {% if previous_post %}
-                    <a href="{% url 'newspost' previous_post.slug %}" class="previous-link">Previous</a>
+                    <a href="{% url 'newspost' previous_post.slug %}" class="previous-link">以前的</a>
                 {% endif %}
             
                 {% if next_post %}
-                    <a href="{% url 'newspost' next_post.slug %}" class="next-link">Next</a>
+                    <a href="{% url 'newspost' next_post.slug %}" class="next-link">下一个</a>
                 {% endif %}
             </div>
         </div>
