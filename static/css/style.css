@@ -1541,6 +1541,11 @@ nav:after{
     border-radius: 10px;
     margin-top: 20px;
 }
+.static-content hr{
+    border: none;
+    border-top: 1px solid #ededed;
+    margin: 10px 0px;
+}
 
 .static-page-title-label {
     font-size: 0.8rem;
@@ -1578,6 +1583,9 @@ nav:after{
 
 .static-content ul {
     list-style: square;
+    padding: 0px 30px;
+}
+.static-content ol{
     padding: 0px 30px;
 }
 
